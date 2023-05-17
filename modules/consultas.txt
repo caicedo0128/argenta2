@@ -1,0 +1,45 @@
+select 
+`orpp`.`id_operacion` AS `id_operacion`,
+`orpp`.`fecha_real_pago` AS `fecha_real_pago`,
+`orpp`.`fecha_movimiento` AS `fecha_mov`,
+sum(`orpp`.`abono`) AS `valor_pago`,
+sum(`orpp`.`abono_inversionista`) AS `valor_op`,
+sum(`orpp`.`abono_inversionista`) AS `valor_mov`,
+sum(`orpp`.`devolucion_remanentes`) AS `devolucion_remanentes`,
+sum(`orpp`.`gmf`) AS `gmf`,
+sum(`orpp`.`otros`) AS `otros`,
+sum(`orpp`.`intereses_mora`) AS `intereses_mora`,
+sum(`orpp`.`valor_obligacion_pp`) AS `valor_obligacion`,
+sum(`orpp`.`nuevo_valor_obligacion`) AS `nuevo_valor_obligacion` 
+from 
+`informat_factoring`.`operacion_reliquidacion_pp` `orpp` 
+group by 
+`orpp`.`id_operacion`,
+`orpp`.`fecha_real_pago`,
+`orpp`.`fecha_movimiento` 
+
+union 
+select 
+`orpt`.`id_operacion` AS `id_operacion`,
+`orpt`.`fecha_real_pago` AS `fecha_real_pago`,
+`orpt`.`fecha_movimiento` AS `fecha_mov`,
+sum(`orpt`.`valor_pago`) AS `valor_pago`,
+sum(`op`.`valor_giro_final`) AS `valor_mov_op`,
+sum(`of`.`valor_giro_final`) AS `valor_mov`,
+sum(`orpt`.`devolucion_remanentes`) AS `devolucion_remanentes`,
+sum(`orpt`.`gmf`) AS `gmf`,
+sum(`orpt`.`otros_descuentos`) AS `otros`,
+sum(`orpt`.`intereses_mora`) AS `intereses_mora`,
+sum(`orpt`.`deuda_fecha_pago_pactada`) AS `valor_obligacion`,
+0 AS `nuevo_valor_obligacion` 
+from 
+((`informat_factoring`.`operacion_reliquidacion_pt` `orpt` 
+join `informat_factoring`.`operacion` `op` on(`orpt`.`id_operacion` = `op`.`id_operacion`)) 
+join `informat_factoring`.`operacion_factura` `of` on(`op`.`id_operacion` = `of`.`id_operacion` and `orpt`.`id_reliquidacion` = `of`.`id_reliquidacion`)) 
+group by `orpt`.`id_operacion`,`orpt`.`fecha_real_pago`,`orpt`.`fecha_movimiento`
+
+
+
+create view v_movimientos as select (sum(`vtr`.`valor_mov`) * -(1)) AS `valor_mov`,`vtr`.`fecha_mov` AS `fecha_mov`,`o`.`id_inversionista` AS `id_inversionista`,'in' AS `tipo` from (`v_totales_reliquidaciones` `vtr` join `operacion` `o` on((`vtr`.`id_operacion` = `o`.`id_operacion`))) group by `vtr`.`fecha_real_pago`,`o`.`id_inversionista` union select sum(`of`.`valor_giro_final`) AS `valor_mov`,`o`.`fecha_operacion` AS `fecha_mov`,`o`.`id_inversionista` AS `id_inversionista`,'eg' AS `tipo` from (`operacion` `o` join `operacion_factura` `of` on((`o`.`id_operacion` = `of`.`id_operacion`))) group by `o`.`fecha_operacion`,`o`.`id_inversionista`
+
+create view v_totales_reliquidaciones as select `orpp`.`id_operacion` AS `id_operacion`,`orpp`.`fecha_real_pago` AS `fecha_real_pago`,`orpp`.`fecha_movimiento` AS `fecha_mov`,sum(`orpp`.`abono`) AS `valor_pago`,sum(`orpp`.`abono_inversionista`) AS `valor_op`,sum(`orpp`.`abono_inversionista`) AS `valor_mov`,sum(`orpp`.`devolucion_remanentes`) AS `devolucion_remanentes`,sum(`orpp`.`gmf`) AS `gmf`,sum(`orpp`.`otros`) AS `otros`,sum(`orpp`.`intereses_mora`) AS `intereses_mora`,sum(`orpp`.`valor_obligacion_pp`) AS `valor_obligacion`,sum(`orpp`.`nuevo_valor_obligacion`) AS `nuevo_valor_obligacion` from `operacion_reliquidacion_pp` `orpp` group by `orpp`.`id_operacion`,`orpp`.`fecha_real_pago`,`orpp`.`fecha_movimiento` union select `orpt`.`id_operacion` AS `id_operacion`,`orpt`.`fecha_real_pago` AS `fecha_real_pago`,`orpt`.`fecha_movimiento` AS `fecha_mov`,sum(`orpt`.`valor_pago`) AS `valor_pago`,sum(`op`.`valor_giro_final`) AS `valor_mov_op`,sum(`of`.`valor_giro_final`) AS `valor_mov`,sum(`orpt`.`devolucion_remanentes`) AS `devolucion_remanentes`,sum(`orpt`.`gmf`) AS `gmf`,sum(`orpt`.`otros_descuentos`) AS `otros`,sum(`orpt`.`intereses_mora`) AS `intereses_mora`,sum(`orpt`.`deuda_fecha_pago_pactada`) AS `valor_obligacion`,0 AS `nuevo_valor_obligacion` from ((`operacion_reliquidacion_pt` `orpt` join `operacion` `op` on((`orpt`.`id_operacion` = `op`.`id_operacion`))) join `operacion_factura` `of` on(((`op`.`id_operacion` = `of`.`id_operacion`) and (`orpt`.`id_reliquidacion` = `of`.`id_reliquidacion`)))) group by `orpt`.`id_operacion`,`orpt`.`fecha_real_pago`,`orpt`.`fecha_movimiento`

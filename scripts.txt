@@ -1,0 +1,52 @@
+Scripts
+=======
+
+Clientes
+
+delete from clientes_documentos where id_cliente in (3224,2947,2941);
+delete from clientes_referencias where id_cliente in (3224,2947,2941);
+delete from clientes_ref_pagador where id_cliente in (3224,2947,2941);
+delete from clientes_seguimiento where id_cliente in (3224,2947,2941);
+delete from clientes_res_facturas where id_cliente in (3224,2947,2941);
+delete from clientes_socios_accionistas where id_cliente in (3224,2947,2941);
+delete from clientes_verificaciones where id_cliente in (3224,2947,2941);
+delete from clientes_adicionales where id_cliente in (3224,2947,2941);
+
+select * from operacion where id_pagador in (3224,2947,2941)
+select * from operacion where id_emisor in (3224,2947,2941)
+delete from clientes where id_cliente in (3224,2947,2941)
+
+
+Nuevos scripts paso a producción.
+================================
+
+CREATE TABLE `perfil_permiso` (
+  `id_perfil_permiso` int(11) NOT NULL,
+  `id_perfil` int(11) NOT NULL,
+  `alias_accion` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `perfil_permiso`
+--
+ALTER TABLE `perfil_permiso`
+  ADD PRIMARY KEY (`id_perfil_permiso`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `perfil_permiso`
+--
+ALTER TABLE `perfil_permiso`
+  MODIFY `id_perfil_permiso` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+
+
+

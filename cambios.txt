@@ -1,0 +1,4 @@
+PAra parciales , calcular campos de facturación
+En el primer abono se muestran todos los campos como en pagos totales
+A partir del segundo solo se muestra Rtf_interese y neto factura
+Operacion - 3412
