@@ -41,7 +41,7 @@ function saveClient(){
 
     if ($("#datosRegistro").valid() && msjError==""){
 
-		showLoading("Enviando información. Espere por favor...");
+		showLoading("Enviando informaciï¿½n. Espere por favor...");
 		$(".btnGuardar").val("Enviando...").attr("disabled","disabled");
         $("#msgEnvio").show();
 
@@ -61,7 +61,7 @@ function saveClient(){
 				closeNotify();
 				if (response.Success){
 					$("#id_cliente").val(response.IdCliente);
-					$("#msgEnvio").text("Transacción exitosa. Por favor descargue el formulario, fírmelo y envíelo a eleyva@argentaestructuradores.com");
+					$("#msgEnvio").text("Transacciï¿½n exitosa. Por favor descargue el formulario, fï¿½rmelo y envï¿½elo a eleyva@argentaestructuradores.com");
                     $(".btnGuardar").hide();
                     $(".btnActualizar").hide();
                     $(".btnDescargar").show();
@@ -97,7 +97,7 @@ function validarArchivo(obj, idObj) {
 		var tamanoPermitido = $(obj).attr('size');
 		var tamanoPermitidoMegas = Math.round(parseFloat(tamanoPermitido / 1024));
 		if (siezekiloByte > tamanoPermitido) {
-			showError("El peso del archivo que intenta cargar supera el permitido de " + tamanoPermitidoMegas + " MB. Seleccione otro archivo.<br/><br/><b>NOTA:</b> Si usted necesita enviar esta información por favor envíe la información al correo eleyva@argentaestructuradores.com", 5000);
+			showError("El peso del archivo que intenta cargar supera el permitido de " + tamanoPermitidoMegas + " MB. Seleccione otro archivo.<br/><br/><b>NOTA:</b> Si usted necesita enviar esta informaciï¿½n por favor envï¿½e la informaciï¿½n al correo eleyva@argentaestructuradores.com", 5000);
 			$(obj).val("");
 		}
 	}
@@ -105,7 +105,7 @@ function validarArchivo(obj, idObj) {
 
 function obtenerDatos(){
 
-	showLoading("Consultando información. Espere por favor...");
+	showLoading("Consultando informaciï¿½n. Espere por favor...");
 	var strUrl = "admindex.php";
 	var dataForm = new FormData(document.getElementById("datosRegistro"));
 
@@ -368,12 +368,12 @@ function validarRetCuentasME(cuentasMe){
 
 function descargarFormularioVinculacion(){
 
-	$("#msgEnvio").text("Preparando información para descargar. Espere por favor...").show();
+	$("#msgEnvio").text("Preparando informaciï¿½n para descargar. Espere por favor...").show();
 	var idCliente = $("#id_cliente").val();
 	$("#contenido-impresion").load('admindex.php', { Ajax:true, mod: 'clientes', action:'versionImpresa', id_cliente:idCliente, es_reporte:1}, function () {
 		descargarPDFVinculacion();
 		window.setTimeout(function(){
-			$("#msgEnvio").text("Transacción exitosa. Espere por favor").show().fadeOut(2000);
+			$("#msgEnvio").text("Transacciï¿½n exitosa. Espere por favor").show().fadeOut(2000);
 			$("#contenido-impresion").html("");
 		},2000);
 	});
@@ -407,11 +407,11 @@ function descargarPDFVinculacion() {
 
 					pdf.setFontSize(7);
 					pdf.setTextColor(150);
-					pdf.text('Página ' + i + ' de ' + totalPages, (pdf.internal.pageSize.getWidth()-1), 10.8);
+					pdf.text('Pï¿½gina ' + i + ' de ' + totalPages, (pdf.internal.pageSize.getWidth()-1), 10.8);
 
 					pdf.setFontSize(7);
 					pdf.setTextColor(150);
-                    pdf.text('ARGENTA ESTRUCTURADORES S.A.S - BOGOTÁ D.C - COLOMBIA', 0.2, 10.8);
+                    pdf.text('ARGENTA ESTRUCTURADORES S.A.S - BOGOTï¿½ D.C - COLOMBIA', 0.2, 10.8);
 
 				  }
 			  }).save();
@@ -456,16 +456,16 @@ function descargarPDFVinculacion() {
 ?>
 <div class="panel panel-primary col-md-offset-1 col-md-10">
     <div class="panel-body">
-        Registre o actualice la información de su vinculación.        
+        Registre o actualice la informaciï¿½n de su vinculaciï¿½n.        
         <hr />
         <section class="featured row" style="clear:both;">
             <div class="icon-box col-lg-4" onclick="verFormularioVinculacion('reg');">
-              <span class="titulo" style="font-size:18px;;color:inherit;">Nueva vinculación</span>
-              <p>Si es la primera vez que se registra en Argenta, ingrese aquí.</p>
+              <span class="titulo" style="font-size:18px;;color:inherit;">Nueva vinculaciï¿½n</span>
+              <p>Si es la primera vez que se registra en Argenta, ingrese aquï¿½.</p>
             </div>
             <div class="icon-box col-lg-4" onclick="verFormularioVinculacion('act');">
-              <span class="titulo" style="font-size:18px;color:inherit;">Actualización</span>
-              <p>Si va a realizar actualización de información a su registro en Argenta, ingrese aquí.</p>
+              <span class="titulo" style="font-size:18px;color:inherit;">Actualizaciï¿½n</span>
+              <p>Si va a realizar actualizaciï¿½n de informaciï¿½n a su registro en Argenta, ingrese aquï¿½.</p>
             </div>
         </section>
         <form id="datosRegistro" method="post" name="datosRegistro" action="admindex.php" method="post" enctype="multipart/form-data">
@@ -473,7 +473,7 @@ function descargarPDFVinculacion() {
         <input type="hidden" name="mod" id="mod" value="clientes" />
         <input type="hidden" name="action" id="action" value="guardarVinculacion" />
         <input type="hidden" name="id_cliente" id="id_cliente" value="<?=$this->id_cliente?>" />
-			<div class="row-fluid alert alert-info">Información básica</div>
+			<div class="row-fluid alert alert-info">Informaciï¿½n bï¿½sica</div>
             <div class="row">
                 <div class="col-md-3 labelCustom">
 					Tipo documento:
@@ -510,7 +510,7 @@ function descargarPDFVinculacion() {
             <div class="row" style="height:10px;">&nbsp;</div>
             <div class="row">
                 <div class="col-md-6 labelCustom titulo_razon_social">
-					Nombre o Razón social:
+					Nombre o Razï¿½n social:
 					<div class="">
 					<?php
 						echo $c_textbox->Textbox ("razon_social", "", 1, "$this->razon_social", "form-control", 30, "", "", "");
@@ -518,7 +518,7 @@ function descargarPDFVinculacion() {
 					</div>
                 </div>
                 <div class="col-md-3 labelCustom">
-					Fecha constitución:
+					Fecha constituciï¿½n:
 					<div class="">
 					<?php
 						echo $c_textbox->Textbox ("fecha_constitucion", "fecha_constitucion", 1, $this->fecha_consticucion, "form-control", 30, "", "", "");
@@ -599,7 +599,7 @@ function descargarPDFVinculacion() {
 					</div>
                 </div>
 				<div class="col-md-3 labelCustom">
-					Ciudad expedición:
+					Ciudad expediciï¿½n:
 					<div class="">
 					<?php
 
@@ -647,7 +647,7 @@ function descargarPDFVinculacion() {
                 </div>
             </div>
             <div class="row" style="height:10px;">&nbsp;</div>
-            <div class="row-fluid alert alert-info">Información general del negocio</div>
+            <div class="row-fluid alert alert-info">Informaciï¿½n general del negocio</div>
 			<div class="row">
                 <div class="col-md-3 labelCustom">
 					Sector:
@@ -670,7 +670,7 @@ function descargarPDFVinculacion() {
 					</div>
                 </div>
                 <div class="col-md-3 labelCustom">
-					Tipo de régimen:
+					Tipo de rï¿½gimen:
 					<div class="">
 					<?php
 						$sede_select = new Select("tipo_empresa","tipo_empresa",$this->arrTipos,"",1,"", "form-control required", 0, "", "", 0);
@@ -768,7 +768,7 @@ function descargarPDFVinculacion() {
 					</div>
                 </div>
 				<div class="col-md-3 labelCustom">
-					Número empleados:
+					Nï¿½mero empleados:
 					<div class="">
 					<?php
 						$sede_select = new Select("id_numero_empleados","id_numero_empleados",$arrNumEmpleados,"",1,"", "form-control required", 0, "", "", 0);
@@ -789,7 +789,7 @@ function descargarPDFVinculacion() {
 					</div>
                 </div>
 				<div class="col-md-3 labelCustom">
-					Cómo se enteró de nuestra compañia:
+					Cï¿½mo se enterï¿½ de nuestra compaï¿½ia:
 					<div class="">
 					<?php
 						$sede_select = new Select("id_referencia","id_referencia",$arrReferencias,"",1,"", "form-control required", 0, "", "", 0);
@@ -802,7 +802,7 @@ function descargarPDFVinculacion() {
             <div class="row" style="height:10px;">&nbsp;</div>
             <div class="row-fluid alert alert-info">Clientes con los que quiere hacer Factoring
             		<a href="javascript:agregarReferencia();" class="btn btn-primary btn-sm" title="Agregar referencia"><i class="fa fa-plus-square fa-lg"></i> Agregar</a>
-            		<a href="javascript:quitarReferencia();" id="btn_quitar_ref" class="btn btn-danger btn-sm" title="Quitar referencia" style="display:none;"><i class="fa fa-minus fa-lg"></i> Quitar último</a>
+            		<a href="javascript:quitarReferencia();" id="btn_quitar_ref" class="btn btn-danger btn-sm" title="Quitar referencia" style="display:none;"><i class="fa fa-minus fa-lg"></i> Quitar ï¿½ltimo</a>
             		<input type="hidden" id="item_referencia" name="item_referencia" value="1">
             </div>
             <div class="row-fluid">
@@ -822,7 +822,7 @@ function descargarPDFVinculacion() {
                 		<div class="content_cliente_<?=$i?>" style="<?=($visible==1?"display:block;":"display:none;")?>">
 						<div class="row <?=$well?>">
 							<div class="col-md-6 labelCustom">
-								<span class="label label-info"><?=$i?></span> Razón social:
+								<span class="label label-info"><?=$i?></span> Razï¿½n social:
 								<div class="">
 								<?php
 									echo $c_textbox->Textbox("ref_empresa".$i, "", $requerido, "", "form-control", 30, "", "", "");
@@ -830,7 +830,7 @@ function descargarPDFVinculacion() {
 								</div>
 							</div>
 							<div class="col-md-3 labelCustom">
-								Identificación:
+								Identificaciï¿½n:
 								<div class="">
 								<?php
 									echo $c_textbox->Textbox("ref_nit".$i, "", $requerido, "", "form-control", 30, "", "", "");
@@ -861,7 +861,7 @@ function descargarPDFVinculacion() {
 								</div>
 							</div>
 							<div class="col-md-3 labelCustom">
-								¿Hace cuanto trabajas con éste cliente?:
+								ï¿½Hace cuanto trabajas con ï¿½ste cliente?:
 								<div class="">
 								<?php
 									$sede_select = new Select("id_relacion_comercial".$i,"id_relacion_comercial",$arrRelacionesComercial,"",$requerido,"", "form-control", 0, "", "", 0);
@@ -881,7 +881,7 @@ function descargarPDFVinculacion() {
 			<div class="row" style="height:10px;">&nbsp;</div>
             <div class="row-fluid alert alert-info">Conocimiento de socios, accionistas, representante legal (principal, suplente) y beneficiario final
             		<a href="javascript:agregarSocio();" class="btn btn-primary btn-sm" title="Agregar socio"><i class="fa fa-plus-square fa-lg"></i> Agregar</a>
-            		<a href="javascript:quitarSocio();" id="btn_quitar_socio" class="btn btn-danger btn-sm" title="Quitar socio" style="display:none;"><i class="fa fa-minus fa-lg"></i> Quitar último</a>
+            		<a href="javascript:quitarSocio();" id="btn_quitar_socio" class="btn btn-danger btn-sm" title="Quitar socio" style="display:none;"><i class="fa fa-minus fa-lg"></i> Quitar ï¿½ltimo</a>
             		<input type="hidden" id="item_socio" name="item_socio" value="1">
             </div>
             <div class="row-fluid">
@@ -924,7 +924,7 @@ function descargarPDFVinculacion() {
 								</div>
 							</div>
 							<div class="col-md-3 labelCustom">
-								Identificación:
+								Identificaciï¿½n:
 								<div class="">
 								<?php
 									echo $c_textbox->Textbox("identificacion".$i, "", $requerido, "", "form-control", 30, "", "", "");
@@ -932,7 +932,7 @@ function descargarPDFVinculacion() {
 								</div>
 							</div>
 							<div class="col-md-3 labelCustom">
-								Nombre/Razón social completa:
+								Nombre/Razï¿½n social completa:
 								<div class="">
 								<?php
 									echo $c_textbox->Textbox("razon_social".$i, "", $requerido, "", "form-control", 30, "", "", "");
@@ -943,7 +943,7 @@ function descargarPDFVinculacion() {
 						<div class="row <?=$well?>" style="height:10px;">&nbsp;</div>
 						<div class="row <?=$well?>">
 							<div class="col-md-3 labelCustom">
-								País Residencia/ Ubicación:
+								Paï¿½s Residencia/ Ubicaciï¿½n:
 								<div class="">
 								<?php
 									$sede_select = new Select("pais_ubicacion".$i,"pais_ubicacion",$arrPaisesDesc,"",$requerido,"", "form-control pais_ubicacion", 0, "", "", 0);
@@ -953,7 +953,7 @@ function descargarPDFVinculacion() {
 								</div>
 							</div>
 							<div class="col-md-3 labelCustom">
-								¿Es (PEP’s)?:
+								ï¿½Es (PEPï¿½s)?:
 								<div id="divRadiopoliticamente_expuesta<?=$i?>" class="radioValidate" style="width:auto;">
 								<?php
 									$c_radio = new Radio;
@@ -965,7 +965,7 @@ function descargarPDFVinculacion() {
 								</div>
 							</div>
 							<div class="col-md-3 labelCustom">
-								¿Tiene algún vínculo con(PEP’s)?:
+								ï¿½Tiene algï¿½n vï¿½nculo con(PEPï¿½s)?:
 								<div id="divRadiotipo_vinculacion_persona<?=$i?>" class="radioValidate" style="width:auto;">
 								<?php
 									$c_radio = new Radio;
@@ -977,7 +977,7 @@ function descargarPDFVinculacion() {
 								</div>
 							</div>
 							<div class="col-md-3 labelCustom">
-								¿Es beneficiario final?:
+								ï¿½Es beneficiario final?:
 								<div id="divRadiobeneficiario_final<?=$i?>" class="radioValidate" style="width:auto;">
 								<?php
 									$c_radio = new Radio;
@@ -997,19 +997,19 @@ function descargarPDFVinculacion() {
 
             </div>
 			<div class="row" style="height:10px;">&nbsp;</div>
-            <div class="row-fluid alert alert-info">Gestión de LA/FT y declaración de origen de fondos y/o bienes</div>
+            <div class="row-fluid alert alert-info">Gestiï¿½n de LA/FT y declaraciï¿½n de origen de fondos y/o bienes</div>
             <div class="row">
                 <div class="col-md-12" style="text-align:justify;">
-                Obrando en nombre propio y de la sociedad que represento, de manera voluntaria y dando certeza de que todo lo aquí
-				consignado es cierto, realizamos la siguiente declaración de origen de bienes y fondos, con el propósito de que se pueda
-				dar cumplimiento a lo señalado al respecto en la Circular Externa No. 007 de 1996, expedida por la Superintendencia
-				Bancaria, Estatuto Orgánico del Sistema Financiero (Decreto 663 de 1993), Ley 190 de 1995 (Estatuto Anticorrupción) y
-				demás normas legales concordantes: a) Declaramos que los recursos que entregamos y los bienes que figuran a nuestro
-				nombre no provienen de ninguna actividad ilícita de las contempladas en el Código Penal Colombiano o en cualquier
-				norma que lo modifique o adicione. b) No admitiremos que terceros efectúen depósitos a nuestras cuentas con fondos
-				provenientes de las actividades ilícitas contempladas en el Código Penal Colombiano o en cualquier norma que lo
+                Obrando en nombre propio y de la sociedad que represento, de manera voluntaria y dando certeza de que todo lo aquï¿½
+				consignado es cierto, realizamos la siguiente declaraciï¿½n de origen de bienes y fondos, con el propï¿½sito de que se pueda
+				dar cumplimiento a lo seï¿½alado al respecto en la Circular Externa No. 007 de 1996, expedida por la Superintendencia
+				Bancaria, Estatuto Orgï¿½nico del Sistema Financiero (Decreto 663 de 1993), Ley 190 de 1995 (Estatuto Anticorrupciï¿½n) y
+				demï¿½s normas legales concordantes: a) Declaramos que los recursos que entregamos y los bienes que figuran a nuestro
+				nombre no provienen de ninguna actividad ilï¿½cita de las contempladas en el Cï¿½digo Penal Colombiano o en cualquier
+				norma que lo modifique o adicione. b) No admitiremos que terceros efectï¿½en depï¿½sitos a nuestras cuentas con fondos
+				provenientes de las actividades ilï¿½citas contempladas en el Cï¿½digo Penal Colombiano o en cualquier norma que lo
 				modifique o adicione, ni efectuaremos transacciones destinadas a tales actividades o a favor de personas relacionadas
-				con las mismas. Declaramos que los bienes que poseemos provienen de (detalle el título de adquisiciones de los bienes):
+				con las mismas. Declaramos que los bienes que poseemos provienen de (detalle el tï¿½tulo de adquisiciones de los bienes):
 				<?php
 					$c_textarea = new Textarea;
 					echo $c_textarea->Textarea("declaracion", "declaracion", 1, "", "form-control", 60, 3);
@@ -1019,24 +1019,24 @@ function descargarPDFVinculacion() {
 			<div class="row" style="height:10px;">&nbsp;</div>
             <div class="row">
                 <div class="col-md-12" style="text-align:justify;">
-                Para los fines previstos en el Art. 83 de la Constitución Política de Colombia, declaramos bajo la gravedad de
-                expresión de la verdad. Nos obligamos a entregar información veraz y verificable. Autorizamos a Argenta Estructuradores
-				S.A.S. para inhabilitar y dar por terminado el producto o servicio, en el evento de que la información aquí suministrada sea
-				errónea, falsa o inexacta o que no sea posible su confirmación por motivos ajenos a Argenta Estructuradores S.A.S.
+                Para los fines previstos en el Art. 83 de la Constituciï¿½n Polï¿½tica de Colombia, declaramos bajo la gravedad de
+                expresiï¿½n de la verdad. Nos obligamos a entregar informaciï¿½n veraz y verificable. Autorizamos a Argenta Estructuradores
+				S.A.S. para inhabilitar y dar por terminado el producto o servicio, en el evento de que la informaciï¿½n aquï¿½ suministrada sea
+				errï¿½nea, falsa o inexacta o que no sea posible su confirmaciï¿½n por motivos ajenos a Argenta Estructuradores S.A.S.
 				Autorizamos irrevocablemente a Argenta Estructuradores S.A.S. para que en caso de que esta solicitud sea negada,
-				destruya todos los documentos que hemos aportado. Así mismo, autorizamos a Argenta Estructuradores S.A.S. o a la
-				entidad que éste designe, para realizar las verificaciones y consultas sobre la información comercial y financiera de la
-				empresa, sus socios y administradores. En el mismo sentido, Argenta Estructuradores S.A.S. podrá suministrar cualquier
-				tipo de información requerida por las entidades de riesgo y registro de deudores morosos, Asociación Bancaria, entidades
-				financieras o de cualquier entidad que se establezca con este propósito.
-				Desde el momento de nuestra vinculación como cliente de Argenta Estructuradores S.A.S., nos obligamos y
-				comprometemos a actualizar, por lo menos una vez al año, cualquier cambio de dirección y/o actividad económica,
-				suministrando los soportes documentales respectivos, así como la información financiera, tributaria y comercial.
+				destruya todos los documentos que hemos aportado. Asï¿½ mismo, autorizamos a Argenta Estructuradores S.A.S. o a la
+				entidad que ï¿½ste designe, para realizar las verificaciones y consultas sobre la informaciï¿½n comercial y financiera de la
+				empresa, sus socios y administradores. En el mismo sentido, Argenta Estructuradores S.A.S. podrï¿½ suministrar cualquier
+				tipo de informaciï¿½n requerida por las entidades de riesgo y registro de deudores morosos, Asociaciï¿½n Bancaria, entidades
+				financieras o de cualquier entidad que se establezca con este propï¿½sito.
+				Desde el momento de nuestra vinculaciï¿½n como cliente de Argenta Estructuradores S.A.S., nos obligamos y
+				comprometemos a actualizar, por lo menos una vez al aï¿½o, cualquier cambio de direcciï¿½n y/o actividad econï¿½mica,
+				suministrando los soportes documentales respectivos, asï¿½ como la informaciï¿½n financiera, tributaria y comercial.
 				OPERACIONES EN MONEDA EXTRANJERA:
 					<div class="row" style="height:10px;">&nbsp;</div>
 					<div class="row">
 						<div class="col-md-3">
-							¿Realiza operaciones en moneda extranjera?:
+							ï¿½Realiza operaciones en moneda extranjera?:
 							<div id="divRadiomodeda_extranjera" class="radioValidate" style="width:auto;">
 							<?php
 								$c_radio = new Radio;
@@ -1049,7 +1049,7 @@ function descargarPDFVinculacion() {
 							</div>
 						</div>
 						<div class="col-md-9 operacion_me">
-							¿Cuáles?:
+							ï¿½Cuï¿½les?:
 							<div id="">
 							<?php
 								$c_textarea = new Textarea;
@@ -1061,7 +1061,7 @@ function descargarPDFVinculacion() {
 					<div class="row" style="height:10px;">&nbsp;</div>
 					<div class="row">
 						<div class="col-md-3">
-							¿Posee cuentas en moneda extranjera?
+							ï¿½Posee cuentas en moneda extranjera?
 							<div id="divRadioctas_modeda_extranjera" class="radioValidate" style="width:auto;">
 							<?php
 								$c_radio = new Radio;
@@ -1109,7 +1109,7 @@ function descargarPDFVinculacion() {
 							</div>
 						</div>
 						<div class="col-md-3">
-							País:
+							Paï¿½s:
 							<div id="">
 							<?php
 								echo $c_textbox->Textbox("pais_me", "", 1, "", "form-control", 30, "", "", "");
@@ -1120,7 +1120,7 @@ function descargarPDFVinculacion() {
 					<div class="row" style="height:10px;">&nbsp;</div>
 					<div class="row">
 						<div class="col-md-3">
-							¿Administra recursos públicos?
+							ï¿½Administra recursos pï¿½blicos?
 							<div id="divRadiorecursos_publicos" class="radioValidate" style="width:auto;">
 							<?php
 								$c_radio = new Radio;
@@ -1133,14 +1133,14 @@ function descargarPDFVinculacion() {
 						</div>
 					</div>
 				<br/>Igualmente, manifiesto bajo la gravedad de juramento que la sociedad a la cual represento, no se encuentra incursa en
-				ninguna causal de liquidación voluntaria u obligatoria, ni ha iniciado trámite alguno tendiente a ser admitida en proceso de
-				reestructuración de acuerdo con la Ley 1116 de 2006 o para ser admitida a concordato.
+				ninguna causal de liquidaciï¿½n voluntaria u obligatoria, ni ha iniciado trï¿½mite alguno tendiente a ser admitida en proceso de
+				reestructuraciï¿½n de acuerdo con la Ley 1116 de 2006 o para ser admitida a concordato.
 				<br/><br/>
                 </div>
             </div>
             <div id="content_archivos">
 				<div class="row" style="height:10px;">&nbsp;</div>
-				<div class="row-fluid alert alert-info">Documentos requeridos (Tamaño maximo por archivo 7MB.)</div>
+				<div class="row-fluid alert alert-info">Documentos requeridos (Tamaï¿½o maximo por archivo 7MB.)</div>
 				<div class="row">
 					<div class="col-md-4 labelCustom">RUT:</div>
 					<div class="col-md-5">
@@ -1149,49 +1149,49 @@ function descargarPDFVinculacion() {
 				</div>
 				<div class="row" style="height:10px;">&nbsp;</div>
 				<div class="row">
-					<div class="col-md-4 labelCustom">Cámara de comercio. Certificado de representación legal con máximo 30 días de emisión:</div>
+					<div class="col-md-4 labelCustom">Cï¿½mara de comercio. Certificado de representaciï¿½n legal con mï¿½ximo 30 dï¿½as de emisiï¿½n:</div>
 					<div class="col-md-5">
 						<input type="file" id="file_camara" name="file_camara" size="7000" class="required form-control" onchange="limitAttach(this, 7);validarArchivo(this, 'file_camara');">
 					</div>
 				</div>
 				<div class="row" style="height:10px;">&nbsp;</div>
 				<div class="row">
-					<div class="col-md-4 labelCustom">Copia de la cédula del representante legal (Ampliado al 150% con firma y huella):</div>
+					<div class="col-md-4 labelCustom">Copia de la cï¿½dula del representante legal (Ampliado al 150% con firma y huella):</div>
 					<div class="col-md-5">
 						<input type="file" id="file_legal" name="file_legal" size="7000" class="required form-control" onchange="limitAttach(this, 7);validarArchivo(this, 'file_legal');">
 					</div>
 				</div>
 				<div class="row" style="height:10px;">&nbsp;</div>
 				<div class="row">
-					<div class="col-md-4 labelCustom">Composición accionaria. Certificado de composición accionaria con máximo 30 días de emisión:</div>
+					<div class="col-md-4 labelCustom">Composiciï¿½n accionaria. Certificado de composiciï¿½n accionaria con mï¿½ximo 30 dï¿½as de emisiï¿½n:</div>
 					<div class="col-md-5">
 						<input type="file" id="file_accionaria" name="file_accionaria" size="7000" class="required form-control" onchange="limitAttach(this, 7);validarArchivo(this, 'file_accionaria');">
 					</div>
 				</div>
 				<div class="row" style="height:10px;">&nbsp;</div>
 				<div class="row">
-					<div class="col-md-4 labelCustom">Resolución de facturación:</div>
+					<div class="col-md-4 labelCustom">Resoluciï¿½n de facturaciï¿½n:</div>
 					<div class="col-md-5">
 						<input type="file" id="file_res_fac" name="file_res_fac" size="7000" class="required form-control" onchange="limitAttach(this, 7);validarArchivo(this, 'file_res_fac');">
 					</div>
 				</div>
 				<div class="row" style="height:10px;">&nbsp;</div>
 				<div class="row">
-					<div class="col-md-4 labelCustom">Estados financieros(1) últimos 2 años con sus respectivas notas auditadas:</div>
+					<div class="col-md-4 labelCustom">Estados financieros(1) ï¿½ltimos 2 aï¿½os con sus respectivas notas auditadas:</div>
 					<div class="col-md-5">
 						<input type="file" id="file_financieros" name="file_financieros" size="7000" class="required form-control" onchange="limitAttach(this, 7);validarArchivo(this, 'file_financieros');">
 					</div>
 				</div>
 				<div class="row" style="height:10px;">&nbsp;</div>
 				<div class="row">
-					<div class="col-md-4 labelCustom">Estados financieros(2) últimos 2 años con sus respectivas notas auditadas (opcional):</div>
+					<div class="col-md-4 labelCustom">Estados financieros(2) ï¿½ltimos 2 aï¿½os con sus respectivas notas auditadas (opcional):</div>
 					<div class="col-md-5">
 						<input type="file" id="file_financieros_2" name="file_financieros_2" size="7000" class="form-control" onchange="limitAttach(this, 7);validarArchivo(this, 'file_financieros_2');">
 					</div>
 				</div>
 				<div class="row" style="height:10px;">&nbsp;</div>
 				<div class="row">
-					<div class="col-md-4 labelCustom">Declaraciones de renta últimos 2 periodos:</div>
+					<div class="col-md-4 labelCustom">Declaraciones de renta ï¿½ltimos 2 periodos:</div>
 					<div class="col-md-5">
 						<input type="file" id="file_declaracion" name="file_declaracion" size="7000" class="required form-control" onchange="limitAttach(this, 7);validarArchivo(this, 'file_declaracion');">
 					</div>
@@ -1199,11 +1199,11 @@ function descargarPDFVinculacion() {
             </div>
             <div class="row" style="height:10px;">&nbsp;</div>
             <center>
-                <div id="msgEnvio" class="alert" style="display:none;margin-bottom:5px;background-color:#449D44;color:#fff;font-size:17px;">Enviando información. El proceso puede tardar unos segundos. Espere por favor...</div>
+                <div id="msgEnvio" class="alert" style="display:none;margin-bottom:5px;background-color:#449D44;color:#fff;font-size:17px;">Enviando informaciï¿½n. El proceso puede tardar unos segundos. Espere por favor...</div>
                 <div id="msgEnvioError" class="alert" style="display:none;margin-bottom:5px;background-color:#C9302C;color:#fff;font-size:17px;"></div>
                 <input type="button" value="Guardar" class="btn btn-primary datos_cliente_btnSave btnGuardar" onclick="saveClient();">
                 <input type="button" value="Actualizar" class="btn btn-primary datos_cliente_btnSave btnActualizar" onclick="saveClient();">
-                <input type="button" value="Descargue aquí el formulario de vinculación" class="btn btn-warning btnDescargar" onclick="descargarFormularioVinculacion();">
+                <input type="button" value="Descargue aquï¿½ el formulario de vinculaciï¿½n" class="btn btn-warning btnDescargar" onclick="descargarFormularioVinculacion();">
                 <br/>
                 <a href="https://www.argentaestructuradores.com" title="Argenta Estructuradores SAS" class="btn btn-success btnDescargar">Volver a www.argentaestructuradores.com</a>
             </center>
