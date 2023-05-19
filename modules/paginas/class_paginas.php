@@ -1,6 +1,6 @@
 <?php
 /**
-* Adminsitración de paginas de la aplicacion
+* Adminsitraciï¿½n de paginas de la aplicacion
 * @author Andres Bravo
 * @version 1.0
 * El constructor de esta clase es {@link paginas()}
@@ -14,7 +14,7 @@ class paginas {
 
 
   	/**
-      * Funciòn para seleccionar opciones de administrador
+      * Funciï¿½n para seleccionar opciones de administrador
       */
   	function parseAdmin() {
 
@@ -46,7 +46,7 @@ class paginas {
 
 
   	/**
-  	  * Funciòn para eliminar paginas de posicion
+  	  * Funciï¿½n para eliminar paginas de posicion
   	  */
   	function eliminarPagina() {
 
@@ -85,7 +85,7 @@ class paginas {
   	}
 
   	/**
-  	  * Funciòn para mover las paginas de posicion
+  	  * Funciï¿½n para mover las paginas de posicion
   	  */
   	function cambiarOrden() {
   		
@@ -126,7 +126,7 @@ class paginas {
   	}
 
   	/**
-  	  * Funciòn para verificar el alias
+  	  * Funciï¿½n para verificar el alias
   	  */
   	function verficarAlias() {
   	
@@ -149,7 +149,7 @@ class paginas {
 
 
   	/**
-  	  * Funciòn para guardar la informacion de la pagina
+  	  * Funciï¿½n para guardar la informacion de la pagina
   	  */
   	function guardarPagina() {
   	
@@ -207,7 +207,7 @@ class paginas {
   	}
 
   	/**
-  	  * Funciòn para mostrar el formulario de editar una pagina en el administrador
+  	  * Funciï¿½n para mostrar el formulario de editar una pagina en el administrador
   	  */
   	function editarPagina() {
   	
@@ -232,7 +232,7 @@ class paginas {
  		//TRAEMOS LAS PAGINAS PADRE
   		$arrPaginas = $this->getPaginasPadre();  		   		
    		
-  		$arrTiposContenido = array("plugin"=>"Módulo",
+  		$arrTiposContenido = array("plugin"=>"Modulo",
   								   "externo"=>"Link Externo"
   								  );
   								  
@@ -245,7 +245,7 @@ class paginas {
   	}
 
   	/**
-  	  * Funciòn para mostrar el listado de paginas en el administrador
+  	  * Funciï¿½n para mostrar el listado de paginas en el administrador
   	  */
   	function listadoAdmin() {
   		
@@ -274,9 +274,9 @@ class paginas {
 
 		//INSTANCIAMOS EL TITULO DEL ADMINISTRADOR
 		if ($idPadre!="0")
-			$dataGrid->titleList="<h1>Administrar paginas de la aplicación: <a href='admindex.php?mod=paginas&action=verListado' class='titletableLink'>Primer nivel</a>=><a href='admindex.php?mod=paginas&action=verListado&id_padre=".$idPaginaPadre."' class='titletableLink'>Nivel anterior</a></h1>";
+			$dataGrid->titleList="<h1>Administrar paginas de la aplicaciï¿½n: <a href='admindex.php?mod=paginas&action=verListado' class='titletableLink'>Primer nivel</a>=><a href='admindex.php?mod=paginas&action=verListado&id_padre=".$idPaginaPadre."' class='titletableLink'>Nivel anterior</a></h1>";
 		else
-			$dataGrid->titleList="<h1>Administrar paginas de la aplicación</h1>";
+			$dataGrid->titleList="<h1>Administrar paginas de la aplicaciï¿½n</h1>";
 			
 		$dataGrid->classTitleList="titletable";
 
@@ -322,7 +322,7 @@ class paginas {
   	}
 
   	/**
-  	  * Funciòn para seleccionar opciones de la parte publica
+  	  * Funciï¿½n para seleccionar opciones de la parte publica
   	  */
   	function parsePublic() {
 		
@@ -340,7 +340,7 @@ class paginas {
   	
 
   	/**
-  	 * Funciòn para mostrar el Contenidos por pàginas
+  	 * Funciï¿½n para mostrar el Contenidos por pï¿½ginas
   	 */
   	function findSQL($strSQL, $order_by,$order_direction,$page = 1,$num_results = 20) {
 
@@ -358,7 +358,7 @@ class paginas {
   	}
 
   	/**
-  	 * Funciòn para traer el arreglo de paginas padre
+  	 * Funciï¿½n para traer el arreglo de paginas padre
   	 */
   	function getPaginasPadre(){
 
@@ -422,6 +422,23 @@ class paginas {
 
   		return $arrPaginas;
   	}
+
+	  function metodoValidarModuloLink(){
+		$validaModulo = "";
+		$validaLink = "";
+
+		if($arrTiposContenido == "Modulo"){
+			$validaModulo = "true";
+			$validaLink = "none";
+		}
+
+		if($arrTiposContenido == "Link Externo"){
+			$validaModulo = "none";
+			$validaLink = "";
+		}
+		
+	  }
+	
 
 }
 

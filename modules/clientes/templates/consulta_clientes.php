@@ -12,7 +12,7 @@
 
 		if ($("#datosRegistroBuscador").valid()){
 			$("#exportar").val('');			
-			showLoading("Enviando información. Espere por favor...");
+			showLoading("Enviando informaciï¿½n. Espere por favor...");
 			var dataForm = "Ajax=true&" + $("#datosRegistroBuscador").serialize();
 			var strUrl = "admindex.php";
 			$.ajax({
@@ -68,7 +68,7 @@
 						</div>    
                     </div>
                     <div class="col-md-4 labelCustom">
-						Razón social / Nombres:
+						Razï¿½n social / Nombres:
 						<div class="">
 						<?php
 							$c_textbox = new Textbox;

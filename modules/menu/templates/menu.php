@@ -117,7 +117,7 @@
 					</a>
 					<ul class="dropdown-menu dropdown-user">
 						<li>
-							<a href="#"><i class="fa fa-gear fa-fw"></i> Cambiar contrase�a</a>
+							<a href="#"><i class="fa fa-gear fa-fw"></i> Cambiar contraseña</a>
 						</li>
 						<li class="divider"></li>
 						<li>

@@ -94,12 +94,12 @@
 	}
 	
 </script>
-<div class="">
-<div class="panel panel-bordered-primary">
-    <div class="panel-body panel-custom-interno">
-        Registro de informacion de acciones
+
+<div class="panel panel-primary col-md-offset-2 col-md-8">
+    <div class="panel-body">
+	Registro de informacion de acciones
         <div class="cerrar_form" onclick="verPaginasHijas('<?=$idPadre?>', 'paginas', 'verListado', '');" title="Volver"><i class="fa fa-reply fa-lg"></i></div>
-        <hr class="separador_titulo"/>
+        	<hr />
 			<form name="formaPagina" id="formaPagina" action="admindex.php" method="post" enctype="multipart/form-data">		
             <input type="hidden" name="Ajax" value="true">
             <input type="hidden" name="id_pagina" value="<?=$idPagina?>">
@@ -108,9 +108,9 @@
 			<input type="hidden" name="mod" value="paginas">
 			<input type="hidden" name="action" value="guardarPagina">
 
-			<div class="row" style="height:10px;">&nbsp;</div>    
+   
                 <div class="row">            
-                    <div class="col-md-2 labelCustom">
+                    <div class="col-md-4 labelCustom">
 							<tr class="">
 						<td>Pagina padre:</td>
 						<td>
@@ -128,8 +128,8 @@
 							</td>
 						</tr>
 					</div>
-
-                    <div class="col-md-3 labelCustom">
+					
+                    <div class="col-md-4 labelCustom">
 						<tr class="">
 						<td>Alias:</td>
 						<td>
@@ -147,8 +147,9 @@
 					</tr>	  
 						</div>                     
 					
-
-                    <div class="col-md-3 labelCustom">
+					<div class="row" style="height:10px;">&nbsp;</div>  
+					<div class="row">
+                    <div class="col-md-4 labelCustom">
 								<tr class="">
 									<td>Nombre:</td>
 									<td>
@@ -158,12 +159,11 @@
 									?>
 									</td>
 								</tr>
-            
+
 						</div>                    
                     </div>
                 
-				
-							<div class="col-md-3 labelCustom">
+							<div class="col-md-4 labelCustom">
 									<tr class="">
 								
 									<td>Titulo HTML:</td>
@@ -175,7 +175,7 @@
 								</tr>
 							</div>  
 							
-							<div class="col-md-3 labelCustom">
+							<div class="col-md-4 labelCustom">
 									<tr class="">
 									<td>Imagen menu:</td>
 									<td>
@@ -187,7 +187,7 @@
 							</div>   
 
 
-							<div class="col-md-2 labelCustom">
+							<div class="col-md-4 labelCustom">
 							<tr class="">
 							<td>Forma abrir pagina:</td>
 							<td>				
@@ -309,9 +309,12 @@
 						</div>                    
                     </div>
                 </div>
-				
+							</div>	
 
 
+
+
+							
         <div class="row col-md-12" style="height:10px;">&nbsp;</div>    
         </form>
         <center>
@@ -319,7 +322,8 @@
         </center>
     </div>
 </div>
-</div>  
+</div> 
+							</div> 
 
 <?php
 
