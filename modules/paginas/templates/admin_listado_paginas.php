@@ -1,6 +1,6 @@
 <div class="row-fluid">
-    <div class="bg-title">
-        Información de acciones en la plataforma
+    <div class="col-md-12 bg-primary-custom">
+        <h4>Informacion de acciones en la plataforma</h4>
     </div>
     <div class="panel-body panel-custom"  id="content_acciones">
     <?php
@@ -39,7 +39,7 @@ function verPaginasHijas(idPadre, mod, action, idPaginaPadre) {
 
 function subirNivel(idPagina, idPadre, mod, action, idPaginaPadre) {
 
-    showLoading("Enviando información. Espere por favor...");
+    showLoading("Enviando informaciï¿½n. Espere por favor...");
     var strUrl = "admindex.php";
     $.ajax({
             type: 'POST',
@@ -56,7 +56,7 @@ function subirNivel(idPagina, idPadre, mod, action, idPaginaPadre) {
             success: function (response) {
                 closeNotify();
                 if (response.Success) {
-                    showSuccess("Transacción exitosa. Espere por favor...");
+                    showSuccess("Transacciï¿½n exitosa. Espere por favor...");
                     verPaginasHijas(idPadre, mod, 'verListado', idPaginaPadre);
                 }
             }

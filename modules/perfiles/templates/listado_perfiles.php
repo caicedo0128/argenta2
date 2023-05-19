@@ -1,8 +1,10 @@
 <div class="row-fluid">
-    <div class="bg-title">
-        Información de perfiles
+    <div class="col-md-12 bg-primary-custom">
+        <h4>Informacion de perfiles</h4>
     </div>
+
     <div class="panel-body panel-custom"  id="content_perfiles">
+        
     <?php
         $dataGrid->displayDataGrid();
     ?>

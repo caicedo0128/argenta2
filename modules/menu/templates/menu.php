@@ -25,7 +25,7 @@
 }
 
 </style>
-<div class="navbar navbar-default navbar-fixed-top">
+<div class="navbar navbar-default navbar-fixed-top1">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand titulo-logo" href="admindex.php">Argenta</a>
