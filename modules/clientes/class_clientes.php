@@ -1,6 +1,6 @@
 <?php
 /**
-* Adminsitración de tabla de clientes
+* Adminsitraciï¿½n de tabla de clientes
 * @version 1.0
 * El constructor de esta clase es {@link clientes()}
 */
@@ -10,13 +10,13 @@ class clientes extends ADOdb_Active_Record{
 
     var $Database;
     var $ID;
-    var $arrTipos = array("1"=>"REGIMEN COMÚN","2"=>"RÉGIMEN SIMPLIFICADO");
+    var $arrTipos = array("1"=>"REGIMEN COMï¿½N","2"=>"Rï¿½GIMEN SIMPLIFICADO");
     var $arrTipoEmpresa = array("1"=>"PRIVADA","2"=>"PUBLICA","3"=>"MIXTA");
     var $arrEstadosDocumento = array("1"=>"CREADO","2"=>"APROBADO");
-    var $arrEstadosCliente = array("0"=>"CREADO","1"=>"ACTIVO","2"=>"INACTIVO","3"=>"RECHAZADO","4"=>"PENDIENTE REVISIÓN","5"=>"TAREA CERRADA");
+    var $arrEstadosCliente = array("0"=>"CREADO","1"=>"ACTIVO","2"=>"INACTIVO","3"=>"RECHAZADO","4"=>"PENDIENTE REVISIï¿½N","5"=>"TAREA CERRADA");
 
     /**
-      * Funciòn para seleccionar opciones de la parte administrativa
+      * Funciï¿½n para seleccionar opciones de la parte administrativa
       */
     function parseAdmin() {
 
@@ -170,7 +170,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
     /**
-      * Funciòn para seleccionar opciones de la parte publica
+      * Funciï¿½n para seleccionar opciones de la parte publica
       */
     function parsePublic() {
 
@@ -188,7 +188,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
 	/**
-     * Función para ver el listado de documentos de vinculacion de un cliente
+     * Funciï¿½n para ver el listado de documentos de vinculacion de un cliente
      */
     function listDocumentosClienteVinculacion() {
 
@@ -202,7 +202,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
  	/**
-     * Función para ver formato impreso de la vinculacion
+     * Funciï¿½n para ver formato impreso de la vinculacion
      */
     function versionImpresa() {
 
@@ -236,7 +236,7 @@ class clientes extends ADOdb_Active_Record{
 
         //TRAEMOS DATOS
         $arrRelacionesComercial = $relacionComercial->getRelacionComercial();
-        $arrTipoDocumento = array("1"=>"RUT","2"=>"Cédula extranjería", "3"=>"NIT","4"=>"Cédula ciudadanía");
+        $arrTipoDocumento = array("1"=>"RUT","2"=>"Cï¿½dula extranjerï¿½a", "3"=>"NIT","4"=>"Cï¿½dula ciudadanï¿½a");
 
 		//OBTENEMOS LAS REFERENCIAS - CLIENTES
 		$rsRefClientes = $clienteReferencia->obtenerReferenciaCliente($idCliente, 1);
@@ -252,7 +252,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
 	/**
-     * Funciòn para guardar una verificacion
+     * Funciï¿½n para guardar una verificacion
      */
     function saveVerificacion() {
 
@@ -306,7 +306,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
 	/**
-     * Funciòn para ver el formulario de verificacion
+     * Funciï¿½n para ver el formulario de verificacion
      */
     function verificacion() {
 
@@ -335,7 +335,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
     /**
-     * Funciòn para ver el listado de verificaciones
+     * Funciï¿½n para ver el listado de verificaciones
      */
     function listVerificacion() {
 
@@ -357,7 +357,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
  	/**
-     * Funciòn para guardar un seguimiento - tarea
+     * Funciï¿½n para guardar un seguimiento - tarea
      */
     function saveRechazo() {
 
@@ -394,7 +394,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
 	/**
-     * Funciòn para ver el formulario de seguimiento
+     * Funciï¿½n para ver el formulario de seguimiento
      */
     function rechazo() {
 
@@ -417,7 +417,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
  	/**
-     * Funciòn para cambiar el estado del cliente
+     * Funciï¿½n para cambiar el estado del cliente
      */
     function cambiarEstado() {
 
@@ -429,9 +429,9 @@ class clientes extends ADOdb_Active_Record{
         $idCliente = $_REQUEST["id_cliente"];
         $loadReg = $cliente->load("id_cliente=".$idCliente);
 
-		//DETERMINAMOS EL ESTADO AL QUE SE ESTÁ CAMBIANDO
+		//DETERMINAMOS EL ESTADO AL QUE SE ESTï¿½ CAMBIANDO
 		$nuevoEstado = $_REQUEST["estado"];
-		//var $arrEstadosCliente = array("1"=>"ACTIVO","2"=>"INACTIVO","3"=>"RECHAZADO","4"=>"PENDIENTE REVISIÓN");
+		//var $arrEstadosCliente = array("1"=>"ACTIVO","2"=>"INACTIVO","3"=>"RECHAZADO","4"=>"PENDIENTE REVISIï¿½N");
 		if ($nuevoEstado == 1){
 
 		}
@@ -463,7 +463,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
  	/**
-     * Funciòn para guardar un seguimiento - tarea
+     * Funciï¿½n para guardar un seguimiento - tarea
      */
     function saveSeguimiento() {
 
@@ -529,7 +529,7 @@ class clientes extends ADOdb_Active_Record{
    	}
 
 	/**
-     * Funciòn para ver el formulario de seguimiento
+     * Funciï¿½n para ver el formulario de seguimiento
      */
     function seguimiento() {
 
@@ -553,7 +553,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
     /**
-     * Funciòn para ver el listado de seguimiento
+     * Funciï¿½n para ver el listado de seguimiento
      */
     function listSeguimiento() {
 
@@ -575,7 +575,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
  	/**
-     * Funciòn para guardar las aceptacion
+     * Funciï¿½n para guardar las aceptacion
      */
     function saveAceptaciones() {
 
@@ -608,7 +608,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
     /**
-     * Funciòn para ver el formulario de aceptacion
+     * Funciï¿½n para ver el formulario de aceptacion
      */
     function aceptaciones() {
 
@@ -632,7 +632,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
     /**
-     * Funciòn para guardar las resolucion de facturacion
+     * Funciï¿½n para guardar las resolucion de facturacion
      */
     function saveResolucion() {
 
@@ -664,7 +664,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
     /**
-	 * Funciòn para obtener la vinculacion
+	 * Funciï¿½n para obtener la vinculacion
 	 */
 	function obtenerVinculacion() {
 
@@ -779,7 +779,7 @@ class clientes extends ADOdb_Active_Record{
 		}
 		else{
 			$jsondata['Success'] = false;
-			$jsondata['Message'] = utf8_encode("El NIT ingresado no ha sido activado para actualización.<br/><br/>Por favor solicite autorización de actualización al correo eleyva@argentaestructuradores.com");
+			$jsondata['Message'] = utf8_encode("El NIT ingresado no ha sido activado para actualizaciï¿½n.<br/><br/>Por favor solicite autorizaciï¿½n de actualizaciï¿½n al correo eleyva@argentaestructuradores.com");
 		}
 
 
@@ -789,7 +789,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
     /**
-     * Funciòn para guardar el pagare
+     * Funciï¿½n para guardar el pagare
      */
     function savePagare() {
 
@@ -959,7 +959,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
 	/**
-     * Funciòn para obtener el listado de referencias pagador
+     * Funciï¿½n para obtener el listado de referencias pagador
      */
     function listReferenciaPagador(){
 
@@ -1005,7 +1005,7 @@ class clientes extends ADOdb_Active_Record{
         $dataGrid->optionsFooter=false;
 
         //IMPRIMIMOS LOS ENCABEZADOS DE COLUMNAS DEL DATA GRID
-        $dataGrid->addTitlesHeader(array("Razón social o<br/> Nombre completo","Porcentaje", "Factor", "Plazo"));
+        $dataGrid->addTitlesHeader(array("Razon social o<br/> Nombre completo","Porcentaje", "Factor", "Plazo"));
         $dataGrid->searchColumn=false;
 
         //OCULTAMOS COLUMNAS O CAMPOS DEL DATA GRID
@@ -1027,7 +1027,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
     /**
-     * Funciòn para ver el formulario de resgistro referencia pagador
+     * Funciï¿½n para ver el formulario de resgistro referencia pagador
      */
     function ReferenciaPagador() {
 
@@ -1054,7 +1054,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
     /**
-     * Funciòn para guardar las referencias pagador
+     * Funciï¿½n para guardar las referencias pagador
      */
     function saveReferenciaPagador() {
 
@@ -1082,7 +1082,7 @@ class clientes extends ADOdb_Active_Record{
             $jsondata['Success'] = true;
         }
         catch(Exception $e){
-            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            echo 'Excepciï¿½n capturada: ',  $e->getMessage(), "\n";
             $jsondata['Success'] = false;
         }
 
@@ -1208,7 +1208,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
 	/**
-     * Funciòn para editar la vinculacion
+     * Funciï¿½n para editar la vinculacion
      */
     function EditarVinculacion() {
 
@@ -1238,7 +1238,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
 	/**
-     * Funciòn para editar informacion de la vinculacion
+     * Funciï¿½n para editar informacion de la vinculacion
      */
     function editDataVinculacion() {
 
@@ -1374,7 +1374,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
     /**
-     * Funciòn para guardar las condiciones
+     * Funciï¿½n para guardar las condiciones
      */
     function saveCondiciones() {
 
@@ -1400,7 +1400,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
     /**
-     * Funciòn para ver el formulario de condiciones
+     * Funciï¿½n para ver el formulario de condiciones
      */
     function condiciones() {
 
@@ -1427,7 +1427,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
     /**
-     * Funciòn para ver el formulario de registrar un cliente
+     * Funciï¿½n para ver el formulario de registrar un cliente
      */
     function exportarClientes() {
 
@@ -1481,7 +1481,7 @@ class clientes extends ADOdb_Active_Record{
         $loadReg = $clienteDocumento->load("id_cliente_documento=".$idDocumento);
 
 		$success = false;
-		if ($clienteDocumento->año != '' && $clienteDocumento->año != '0'){
+		if ($clienteDocumento->aï¿½o != '' && $clienteDocumento->aï¿½o != '0'){
 
 			$clienteDocumento->id_estado = 2;
 			$clienteDocumento->id_usuario = $_SESSION["id_user"];
@@ -1516,7 +1516,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
 	/**
-     * Funciòn para ver el formulario de registrar un cliente
+     * Funciï¿½n para ver el formulario de registrar un cliente
      */
     function saveDocumento() {
 
@@ -1544,20 +1544,20 @@ class clientes extends ADOdb_Active_Record{
 				$tamano = filesize($_FILES['file_documento']['tmp_name']);
 
 				if ($idDocumento == 0){
-					$strSQL = "INSERT INTO clientes_documentos(id_cliente, id_tipo_documento, archivo, tipo_archivo, registro, año, periodo, id_usuario, fecha, observaciones, fecha_vencimiento) VALUES (".$idCliente.", ".$_REQUEST["id_tipo_documento"].",'".$fileCargaContenido."', '".$tipo."', 2,'".$ano."','".$periodo."','".$usuario."','".date("Y-m-d")."','".$observaciones."',".($fechaVencimiento!=null?$fechaVencimiento:'null').")";
+					$strSQL = "INSERT INTO clientes_documentos(id_cliente, id_tipo_documento, archivo, tipo_archivo, registro, aï¿½o, periodo, id_usuario, fecha, observaciones, fecha_vencimiento) VALUES (".$idCliente.", ".$_REQUEST["id_tipo_documento"].",'".$fileCargaContenido."', '".$tipo."', 2,'".$ano."','".$periodo."','".$usuario."','".date("Y-m-d")."','".$observaciones."',".($fechaVencimiento!=null?$fechaVencimiento:'null').")";
 				}
 				else{
-					$strSQL = "UPDATE clientes_documentos SET id_tipo_documento=".$_REQUEST["id_tipo_documento"].", archivo='".$fileCargaContenido."', tipo_archivo='".$tipo."', año='".$ano."',periodo='".$periodo."',id_usuario=".$usuario.", observaciones = concat('".$observaciones."',COALESCE(observaciones,'')), fecha_vencimiento=".($fechaVencimiento!=null?$fechaVencimiento:'null')." WHERE id_cliente_documento=" . $idDocumento;
+					$strSQL = "UPDATE clientes_documentos SET id_tipo_documento=".$_REQUEST["id_tipo_documento"].", archivo='".$fileCargaContenido."', tipo_archivo='".$tipo."', aï¿½o='".$ano."',periodo='".$periodo."',id_usuario=".$usuario.", observaciones = concat('".$observaciones."',COALESCE(observaciones,'')), fecha_vencimiento=".($fechaVencimiento!=null?$fechaVencimiento:'null')." WHERE id_cliente_documento=" . $idDocumento;
 				}
             }
             else{
-            	$strSQL = "UPDATE clientes_documentos SET id_tipo_documento=".$_REQUEST["id_tipo_documento"].", año='".$ano."',periodo='".$periodo."',id_usuario=".$usuario.", observaciones = concat('".$observaciones."',COALESCE(observaciones,'')), fecha_vencimiento=".($fechaVencimiento!=null?$fechaVencimiento:'null')." WHERE id_cliente_documento=" . $idDocumento;
+            	$strSQL = "UPDATE clientes_documentos SET id_tipo_documento=".$_REQUEST["id_tipo_documento"].", aï¿½o='".$ano."',periodo='".$periodo."',id_usuario=".$usuario.", observaciones = concat('".$observaciones."',COALESCE(observaciones,'')), fecha_vencimiento=".($fechaVencimiento!=null?$fechaVencimiento:'null')." WHERE id_cliente_documento=" . $idDocumento;
             }
 
             $db->Execute($strSQL);
         }
         catch(Exception $e){
-            $mensaje = "Excepción capturada: ".  $e->getMessage();
+            $mensaje = "Excepciï¿½n capturada: ".  $e->getMessage();
         }
 
         $jsondata['Success'] = true;
@@ -1568,7 +1568,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
     /**
-     * Funciòn para ver el formulario de registrar un cliente
+     * Funciï¿½n para ver el formulario de registrar un cliente
      */
     function documento() {
 
@@ -1598,15 +1598,15 @@ class clientes extends ADOdb_Active_Record{
         $arrTiposDocumento = $documentos->obtenerDocumentosPorTipoTercero($idTipoTerceroP);
         //$arrTiposDocumento = $documentos->obtenerDocumentosPorTipoTercero($idTipoTerceroS);
 
-        $años = new años();
-        $arrAños = $años->getAños();
+        $aï¿½os = new aï¿½os();
+        $arrAï¿½os = $aï¿½os->getAï¿½os();
 
         include("./modules/clientes/templates/cliente_documento.php");
 
     }
 
     /**
-     * Funciòn para ver el formulario de registrar un cliente
+     * Funciï¿½n para ver el formulario de registrar un cliente
      */
     function verInformacionAnexa() {
 
@@ -1644,7 +1644,7 @@ class clientes extends ADOdb_Active_Record{
         $arrNumEmpleados = $empleado->getNumeroEmpleados();
         $arrPlazoPago = $plazoPago->getPlazosPago();
         $arrRelacionesComercial = $relacionComercial->getRelacionComercial();
-        $arrTipoDocumento = array("1"=>"RUT","2"=>"Cédula extranjería", "3"=>"NIT","4"=>"Cédula ciudadanía");
+        $arrTipoDocumento = array("1"=>"RUT","2"=>"Cï¿½dula extranjerï¿½a", "3"=>"NIT","4"=>"Cï¿½dula ciudadanï¿½a");
 
 
         $idCliente = $_REQUEST["id_cliente"];
@@ -1662,7 +1662,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
 	/**
-     * Funciòn para ver guardar la vinculacion
+     * Funciï¿½n para ver guardar la vinculacion
      */
     function listDocumentosCliente() {
 
@@ -1677,7 +1677,7 @@ class clientes extends ADOdb_Active_Record{
         	$idCliente = $_SESSION["id_tercero"];
 
         //TRAEMOS LA CONSULTA DE DATOS PARA EL DATA GRID
-        $strSQL = "SELECT cd.fecha,cd.id_cliente_documento, td.tipo_documento, cd.registro, concat(cd.año,'-',cd.periodo) as anio,concat_ws(' ', users.nombres, users.apellidos) as usuario, cd.id_estado, cd.fecha_vencimiento
+        $strSQL = "SELECT cd.fecha,cd.id_cliente_documento, td.tipo_documento, cd.registro, concat(cd.aï¿½o,'-',cd.periodo) as anio,concat_ws(' ', users.nombres, users.apellidos) as usuario, cd.id_estado, cd.fecha_vencimiento
         FROM clientes_documentos as cd INNER JOIN tipo_documento AS td ON cd.id_tipo_documento = td.id_tipo_documento
         LEFT JOIN users ON cd.id_usuario = users.id_usuario";
         $strSQL .= " WHERE cd.id_cliente = " . $idCliente;
@@ -1690,7 +1690,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
     /**
-     * Funciòn para ver guardar la vinculacion
+     * Funciï¿½n para ver guardar la vinculacion
      */
     function verDocumentoCliente() {
 
@@ -1715,7 +1715,7 @@ class clientes extends ADOdb_Active_Record{
    	}
 
     /**
-     * Funciòn para ver guardar la vinculacion
+     * Funciï¿½n para ver guardar la vinculacion
      */
     function guardarVinculacion() {
 
@@ -1747,7 +1747,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
     /**
-     * Funciòn para ver actualizar la vinculacion
+     * Funciï¿½n para ver actualizar la vinculacion
      */
     function actualizarVinculacion() {
 
@@ -1780,7 +1780,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
 	/**
-     * Funciòn para guardar informacion de la vinculacion
+     * Funciï¿½n para guardar informacion de la vinculacion
      */
     function saveDataVinculacion() {
 
@@ -2038,31 +2038,31 @@ class clientes extends ADOdb_Active_Record{
 
         $fromName = $appObj->paramGral["FROM_NAME_EMAIL_CONTACT"];
         $fromEmail = $appObj->paramGral["FROM_EMAIL_CONTACT"];
-        $subjectMail = "Vinculación portal web Argenta";
+        $subjectMail = "Vinculaciï¿½n portal web Argenta";
         $toNameMail = "Elvira Leyva;Jacobo Sanint";
         $toEmail = "eleyva@argentaestructuradores.com;jsanint@argentaestructuradores.com;coordinadora@argentaestructuradores.com";
         $templateMail = "mailTerceros";
-        $observaciones = "Se ha realizado un registro desde la página web por favor revisar la información adjunta.";
+        $observaciones = "Se ha realizado un registro desde la pï¿½gina web por favor revisar la informaciï¿½n adjunta.";
 
         //ARMAMOS LOS DATOS DEL TERCERO
         $arrTipos = array("1"=>"RUT","2"=>"CE", "3"=>"NIT","4"=>"CC");
         $datosTercero = "Tipo tercero: " . $arrTerceros[$this->id_tipo_tercero];
-        $datosTercero .= "<br/>Tipo identificación: " . $arrTipos[$this->tipo_identificacion];
-        $datosTercero .= "<br/>Identificación: " . $this->identificacion;
-        $datosTercero .= "<br/>Razón social: " . $this->razon_social;
+        $datosTercero .= "<br/>Tipo identificaciï¿½n: " . $arrTipos[$this->tipo_identificacion];
+        $datosTercero .= "<br/>Identificaciï¿½n: " . $this->identificacion;
+        $datosTercero .= "<br/>Razï¿½n social: " . $this->razon_social;
         $datosTercero .= "<br/>Representante legal: " . $this->representante_legal;
         $datosTercero .= "<br/>Ciudad: " . $this->ciudad;
-        $datosTercero .= "<br/>Teléfono fijo: " . $this->telefono_fijo;
-        $datosTercero .= "<br/>Teléfono celular: " . $this->telefono_celular;
-        $datosTercero .= "<br/>Dirección: " . $this->direccion;
-        $datosTercero .= "<br/>Correo electrónico: " . $this->correo_personal;
+        $datosTercero .= "<br/>Telï¿½fono fijo: " . $this->telefono_fijo;
+        $datosTercero .= "<br/>Telï¿½fono celular: " . $this->telefono_celular;
+        $datosTercero .= "<br/>Direcciï¿½n: " . $this->direccion;
+        $datosTercero .= "<br/>Correo electrï¿½nico: " . $this->correo_personal;
 
         //ENVIAMOS EL CORREO
         $arrVarsReplace = array("DATOS_TERCERO"=>$datosTercero,"NOTA"=>$observaciones,"NAME"=>$toNameMail);
         $success = $sendMail->enviarMail($fromName,$fromEmail,$toNameMail,$toEmail,$subjectMail,$templateMail,array(),$arrVarsReplace);
 
 		//ENVIAMOS EL CORREO AL TERCERO
-		$subjectMail = "Confirmación vinculación portal web Argenta Estructuradores.";
+		$subjectMail = "Confirmaciï¿½n vinculaciï¿½n portal web Argenta Estructuradores.";
 		$templateMail = "mailTercerosExterno";
         $arrVarsReplace = array("DATOS_TERCERO"=>$datosTercero,"NAME"=>$this->representante_legal);
         $success = $sendMail->enviarMail($fromName,$fromEmail,$this->representante_legal,$this->correo_personal,$subjectMail,$templateMail,array(),$arrVarsReplace);
@@ -2083,7 +2083,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
     /**
-     * Funciòn para ver el formulario de registrar un cliente
+     * Funciï¿½n para ver el formulario de registrar un cliente
      */
     function vinculacion() {
 
@@ -2123,9 +2123,9 @@ class clientes extends ADOdb_Active_Record{
         $arrNumEmpleados = $empleado->getNumeroEmpleados();
         $arrPlazoPago = $plazoPago->getPlazosPago();
         $arrRelacionesComercial = $relacionComercial->getRelacionComercial();
-        $arrTipoDocumento = array("1"=>"RUT","2"=>"Cédula extranjería", "3"=>"NIT","4"=>"Cédula ciudadanía");
+        $arrTipoDocumento = array("1"=>"RUT","2"=>"Cï¿½dula extranjerï¿½a", "3"=>"NIT","4"=>"Cï¿½dula ciudadanï¿½a");
 
-		//DETERMINAMOS SI ESTÁ INGRESANDO DESDE EL USUARIO LOGUEADO DE ARGENTA
+		//DETERMINAMOS SI ESTï¿½ INGRESANDO DESDE EL USUARIO LOGUEADO DE ARGENTA
 		$cargarFormulario = "reg";
 		if ($_SESSION["id_user"] != ""){
 			$cargarFormulario = "act";
@@ -2137,7 +2137,7 @@ class clientes extends ADOdb_Active_Record{
 
 
     /**
-     * Funciòn para mostrar formulario de buscador clientes
+     * Funciï¿½n para mostrar formulario de buscador clientes
      */
     function searchClients(){
 
@@ -2155,7 +2155,7 @@ class clientes extends ADOdb_Active_Record{
 
 
     /**
-     * Funciòn para obtener el listado de clientes
+     * Funciï¿½n para obtener el listado de clientes
      */
     function listClients(){
 
@@ -2205,14 +2205,16 @@ class clientes extends ADOdb_Active_Record{
 
         //CREAR OPCIONES DE ENCABEZADO EN EL DATA GRID
         $dataGrid->optionsHeader=true;
-        $dataGrid->addOptionsHeader("Agregar","javascript:editCliente(0,'clientes','client')","btn-primary","fa-plus-square");
+    
+        
+        //$dataGrid->addOptionsHeader("Agregar","javascript:editCliente(0,'clientes','client')","btn-primary","fa-plus-square");
         $dataGrid->addOptionsHeader("Exportar","javascript:exportarClientes()","btn-success","fa-download");
 
         //CREAR OPCIONES DE PIE EN EL DATA GRID
         $dataGrid->optionsFooter=false;
 
         //IMPRIMIMOS LOS ENCABEZADOS DE COLUMNAS DEL DATA GRID
-        $dataGrid->addTitlesHeader(array("Tipo tercero","Identificación","Razón social /<br/>Nombres", "Teléfonos", "Celular","Encargado", "Teléfono", "Fecha Registro","Estado"));
+        $dataGrid->addTitlesHeader(array("Tipo tercero","Identificaciin","Razin social /<br/>Nombres", "Telefonos", "Celular","Encargado", "Telefono", "Fecha Registro","Estado"));
         $dataGrid->searchColumn=false;
 
         //OCULTAMOS COLUMNAS O CAMPOS DEL DATA GRID
@@ -2227,8 +2229,28 @@ class clientes extends ADOdb_Active_Record{
         $arrVarGet1 = Array("id_cliente"=>"ID_CLIENTE","mod"=>"clientes","action"=>"client");
         $arrVarGet2 = Array("id_cliente"=>"ID_CLIENTE","mod"=>"clientes","action"=>"deleteClient");
         $arrVarGet3 = Array("id_cliente"=>"ID_CLIENTE");
-        $dataGrid->addColLink("Editar","<center><a href=\"javascript:{function};\"><img src='./images/editar.png' title='Editar Cliente' alt='Editar Cliente' border='0'/></a></center>","editCliente",$arrVarGet1,"functionjs","left");
-        $dataGrid->addColLink("Eliminar","<center><a href=\"javascript:{function};\"><img src='./images/eliminar.png' title='Eliminar Cliente' alt='Eliminar Cliente' border='0'/></a></center>","deleteCliente",$arrVarGet2,"functionjs","left");
+
+
+        if ($appObj->tienePermisosAccion(array("eliminar_terceros")))
+        {
+            //Opcion a ejecutar si tiene el permiso
+            $dataGrid->addColLink("Eliminar","<center><a href=\"javascript:{function};\"><img src='./images/eliminar.png' title='Eliminar Cliente' alt='Eliminar Cliente' border='0'/></a></center>","deleteCliente",$arrVarGet2,"functionjs","left");
+        }
+        
+        if ($appObj->tienePermisosAccion(array("editar_terceros")))
+        {
+            //Opcion a ejecutar si tiene el permiso
+            $dataGrid->addColLink("Editar","<center><a href=\"javascript:{function};\"><img src='./images/editar.png' title='Editar Cliente' alt='Editar Cliente' border='0'/></a></center>","editCliente",$arrVarGet1,"functionjs","left");
+        }
+       // $dataGrid->addColLink("Eliminar","<center><a href=\"javascript:{function};\"><img src='./images/eliminar.png' title='Eliminar Cliente' alt='Eliminar Cliente' border='0'/></a></center>","deleteCliente",$arrVarGet2,"functionjs","left");
+
+       if ($appObj->tienePermisosAccion(array("agregar_terceros")))
+       {
+           //Opcion a ejecutar si tiene el permiso
+           $dataGrid->addOptionsHeader("Agregar","javascript:editCliente(0,'clientes','client')","btn-primary","fa-plus-square");
+        }
+
+
         $dataGrid->addColLink("Estudios de riesgo","<center><a href=\"javascript:{function};\" title='Estudio de riesgo'><li class='fa fa-bar-chart'></li></a></center>","cargarEstudios",$arrVarGet3,"functionjs","right");
         $dataGrid->addColLink("Reporte","<center><a href=\"javascript:{function};\" title='Enviar datos'><li class='fa fa-envelope'></li></a></center>","formDatosReporte",$arrVarGet3,"functionjs","right");
 
@@ -2247,7 +2269,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
     /**
-     * Funciòn para registrar un cliente
+     * Funciï¿½n para registrar un cliente
      */
     function saveClient() {
 
@@ -2312,7 +2334,7 @@ class clientes extends ADOdb_Active_Record{
         if ($_POST['id_cliente'] == 0){
             $this->fecha_registro = date("Y-m-d");
             $this->activo = 0;
-            $observaciones = "CREACIÓN DE CLIENTE";
+            $observaciones = "CREACIï¿½N DE CLIENTE";
 		}
 
         $this->Save();
@@ -2331,7 +2353,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
     /**
-     * Funciòn para ver el formulario de registrar un cliente
+     * Funciï¿½n para ver el formulario de registrar un cliente
      */
     function client() {
 
@@ -2464,7 +2486,7 @@ class clientes extends ADOdb_Active_Record{
     }
 
     /**
-     * Funciòn para enviar informacion de un cliente por correo
+     * Funciï¿½n para enviar informacion de un cliente por correo
      */
     function sendDataClient() {
 
@@ -2482,7 +2504,7 @@ class clientes extends ADOdb_Active_Record{
 
         $fromName = $appObj->paramGral["FROM_NAME_EMAIL_CONTACT"];
         $fromEmail = $appObj->paramGral["FROM_EMAIL_CONTACT"];
-        $subjectMail = "Información nuevo tercero Argenta";
+        $subjectMail = "Informaciï¿½n nuevo tercero Argenta";
         $toNameMail = $_REQUEST["nombre_to_email"];
         $toEmail = $_REQUEST["correo_to_email"];
         $templateMail = "mailTerceros";
@@ -2494,14 +2516,14 @@ class clientes extends ADOdb_Active_Record{
         //ARMAMOS LOS DATOS DEL TERCERO
         $arrTipos = array("1"=>"RUT","2"=>"CE", "3"=>"NIT","4"=>"CC");
         $datosTercero = "Tipo tercero: " . $arrTerceros[$this->id_tipo_tercero];
-        $datosTercero .= "<br/>Tipo identificación: " . $arrTipos[$this->tipo_identificacion];
-        $datosTercero .= "<br/>Identificación: " . $this->identificacion;
-        $datosTercero .= "<br/>Razón social: " . $this->razon_social;
+        $datosTercero .= "<br/>Tipo identificaciï¿½n: " . $arrTipos[$this->tipo_identificacion];
+        $datosTercero .= "<br/>Identificaciï¿½n: " . $this->identificacion;
+        $datosTercero .= "<br/>Razï¿½n social: " . $this->razon_social;
         $datosTercero .= "<br/>Representante legal: " . $this->representante_legal;
         $datosTercero .= "<br/>Ciudad: " . $this->ciudad;
-        $datosTercero .= "<br/>Teléfono fijo: " . $this->telefono_fijo;
-        $datosTercero .= "<br/>Teléfono celular: " . $this->telefono_celular;
-        $datosTercero .= "<br/>Dirección: " . $this->direccion;
+        $datosTercero .= "<br/>Telï¿½fono fijo: " . $this->telefono_fijo;
+        $datosTercero .= "<br/>Telï¿½fono celular: " . $this->telefono_celular;
+        $datosTercero .= "<br/>Direcciï¿½n: " . $this->direccion;
         $datosTercero .= "<br/>Correo personal: " . $this->correo_personal;
 
         //ENVIAMOS EL CORREO

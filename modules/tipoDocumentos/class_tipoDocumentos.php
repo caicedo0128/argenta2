@@ -1,6 +1,6 @@
 <?php
 /**
-* Adminsitración del modulo tipoDocumentos
+* Adminsitraciï¿½n del modulo tipoDocumentos
 * @version 1.0
 * El constructor de esta clase es {@link tipoDocumentos()}
 */
@@ -10,7 +10,7 @@ class tipoDocumentos{
     var $ID;
 
     /**
-      * Funciòn para seleccionar opciones de la parte administrativa
+      * Funciï¿½n para seleccionar opciones de la parte administrativa
       */
     function parseAdmin() {
 
@@ -34,7 +34,7 @@ class tipoDocumentos{
     }
    
     /**
-     * Funciòn para obtener el listado de tipo documentos
+     * Funciï¿½n para obtener el listado de tipo documentos
      */
     function listTipoDocumentos(){
 
@@ -75,7 +75,7 @@ class tipoDocumentos{
         $dataGrid->addFieldTwoValues("comercial",$arrValues,$arrText);         
 
         //IMPRIMIMOS LOS ENCABEZADOS DE COLUMNAS DEL DATA GRID
-        $dataGrid->addTitlesHeader(array("Código","Tipo documentos","Emisor","Pagador","Comercial"));
+        $dataGrid->addTitlesHeader(array("Cï¿½digo","Tipo documentos","Emisor","Pagador","Comercial"));
 
         //CREAR UNA COLUMNA CON LINK PASANDO VARIABLES POR METODO GET
         $arrVarGet1 = Array("id_tipo_documento"=>"ID_TIPO_DOCUMENTO","mod"=>"tipoDocumentos","action"=>"Documentos");
@@ -93,7 +93,7 @@ class tipoDocumentos{
     }
 
     /**
-     * Funciòn para ver el formulario de registrar un tipo documentos
+     * Funciï¿½n para ver el formulario de registrar un tipo documentos
      */
     function Documentos() {
 
@@ -114,7 +114,7 @@ class tipoDocumentos{
     }
 
     /**
-     * Funciòn para guardar informacion tipo_documento
+     * Funciï¿½n para guardar informacion tipo_documento
      */
     function saveDocumentos() {
 
@@ -142,7 +142,7 @@ class tipoDocumentos{
     }
 
     /**
-     * Funciòn para eliminar tipo_documento
+     * Funciï¿½n para eliminar tipo_documento
      */
     function eliminarDocumentos() {
 

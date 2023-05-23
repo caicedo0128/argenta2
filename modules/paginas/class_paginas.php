@@ -284,8 +284,10 @@ class paginas {
 		$dataGrid->titleProcess = $msjProcesoRealizado;
 		
 		//CREAR OPCIONES DE ENCABEZADO EN EL DATA GRID
+		
 		$dataGrid->optionsHeader=true;
         $dataGrid->addOptionsHeader("Agregar","javascript:editPagina(0,'paginas','editarPagina','".$idPadre."','".$idPaginaPadre."')","btn-primary","fa-plus-square");
+
 
 		//CREAR OPCIONES DE PIE EN EL DATA GRID
 		$dataGrid->optionsFooter=false;

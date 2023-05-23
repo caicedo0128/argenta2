@@ -256,6 +256,17 @@ class AppObj{
 		}
 
   	}
+  	
+    function tienePermisosAccion($acciones = array()){
+
+        require_once("./modules/perfiles/class_perfiles_extended.php");
+
+        $perfilPermiso = new perfil_permiso();
+        $tienePermiso = $perfilPermiso->tienePermisosAccion($acciones);
+
+        return $tienePermiso;
+    
+    }  	
 
     /**
      * Funciòn generar las metas dependiendo del modlo
