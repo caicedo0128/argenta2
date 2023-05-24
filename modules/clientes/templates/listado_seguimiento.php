@@ -18,13 +18,19 @@ function agregarSeguimiento() {
 </style>
 <div class="row-fluid">
     <div class="col-md-12 bg-primary-custom">
-        <h4>Información de seguimiento</h4>
+        <h4>Informaciï¿½n de seguimiento</h4>
     </div>
 </div>
 <div id="content_seguimiento" class="" style="clear:both;padding-top:15px;">
 	<div style="height: 40px;" class="row-fluid">
 		<div class="agregar_registro text-right">
-			<a class="btn btn-primary btn-sm" href="javascript:agregarSeguimiento();"><i class="fa fa-plus-square fa-lg"></i> Agregar tarea / seguimiento</a>
+			<?
+				if ($appObj->tienePermisosAccion(array("seguimiento_terceros")))
+				{
+					//Opcion a ejecutar si tiene el permiso
+					echo "<a class='btn btn-primary btn-sm' href='javascript:agregarSeguimiento();'><i class='fa fa-plus-square fa-lg'></i> Agregar tarea / seguimiento</a>";
+				}
+			?>
 		</div>
 	</div>
 	<table id="tableDataSeguimiento" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" style="width:100%;">

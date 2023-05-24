@@ -28,7 +28,7 @@ function saveAceptacion(){
 			success: function (response) {
 				closeNotify();
 				if (response.Success){
-					showSuccess("Transacción exitosa. Espere por favor...");
+					showSuccess("Transacciï¿½n exitosa. Espere por favor...");
 					cargarInfoAceptacion();
 				}
 			}
@@ -62,13 +62,13 @@ function validarAceptacionEspecifica(validacionEspecifica){
 </style>
 <div class="row-fluid">
     <div class="col-md-12 bg-primary-custom">
-        <h4>Información de parámetros del tercero</h4>
+        <h4>Informaciï¿½n de parï¿½metros del tercero</h4>
     </div>
 </div>
 <div class="row col-md-12" style="height:10px;">&nbsp;</div>
 <div class="panel panel-primary col-md-offset-2 col-md-9" style="padding-right:0px !important;padding-left:0px !important;">
     <div class="panel-body">
-        Registro de información de aceptación
+        Registro de informaciï¿½n de aceptaciï¿½n
         <hr/>
         <form id="datosRegistroAceptacion" method="post" name="datosRegistroAceptacion" action="admindex.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="Ajax" id="Ajax" value="true" />
@@ -77,7 +77,7 @@ function validarAceptacionEspecifica(validacionEspecifica){
         <input type="hidden" name="id_cliente" id="id_cliente" value="<?=$idCliente?>" />
 			<div class="row">     				
 				<div class="col-md-4">
-            		<div class="">Emite carta/correo de aceptación general:</div>
+            		<div class="">Emite carta/correo de aceptaciï¿½n general:</div>
 					<div id="divRadioaceptacion_general" class="radioValidate" style="width:auto;">
 					<?php
 						$c_radio = new Radio;
@@ -91,7 +91,7 @@ function validarAceptacionEspecifica(validacionEspecifica){
 				</div>
 				
 				<div class="col-md-4">
-            		<div class="">Emite carta/correo de aceptación específica:</div>
+            		<div class="">Emite carta/correo de aceptaciï¿½n especï¿½fica:</div>
 					<div id="divRadioaceptacion_especifica" class="radioValidate" style="width:auto;">
 					<?php
 						$c_radio = new Radio;
@@ -118,7 +118,7 @@ function validarAceptacionEspecifica(validacionEspecifica){
 			<div class="row" style="height:10px;">&nbsp;</div>    
 			<div class="row">              				
 				<div class="col-md-8">
-					<div class="">Correo electrónico validación:</div>
+					<div class="">Correo electrï¿½nico validaciï¿½n:</div>
 					<?php
 						$c_textbox = new Textbox;
 						echo $c_textbox->Textbox("correo_validacion", "correo_validacion", 1, $adicional->correo_validacion, "form-control email", "", "");
@@ -140,7 +140,13 @@ function validarAceptacionEspecifica(validacionEspecifica){
             </form>
             <div class="row" style="height:10px;">&nbsp;</div>
             <center>
-                <input type="button" value="Guardar" class="btn btn-primary datos_cliente_btnSave" onclick="saveAceptacion();">
+				<?
+				if ($appObj->tienePermisosAccion(array("aceptaciones_guardar_terceros")))
+				{
+					//Opcion a ejecutar si tiene el permiso
+					echo "<input type='button' value='Guardar' class='btn btn-primary datos_cliente_btnSave' onclick='saveAceptacion();'>";
+				}
+				?>
             </center>            
     </div>        
 </div>

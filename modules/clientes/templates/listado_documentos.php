@@ -4,13 +4,19 @@
 
 <div class="row-fluid">
     <div class="col-md-12 bg-primary-custom">
-        <h4>Información de documentos</h4>
+        <h4>Informacion de documentos</h4>
     </div>
 </div>
 <div id="content_documentos" class="" style="clear:both;padding-top:15px;">
 	<div style="height: 40px;" class="row-fluid">
 		<div class="agregar_registro text-right">
-			<a class="btn btn-primary btn-sm" href="javascript:editDocumento(0,'clientes','documento');"><i class="fa fa-plus-square fa-lg"></i> Agregar</a>                                      
+			<?
+			if ($appObj->tienePermisosAccion(array("documentos_agregar_terceros")))
+			{
+				//Opcion a ejecutar si tiene el permiso
+				echo "<a class='btn btn-primary btn-sm' href='javascript:editDocumento(0,'clientes','documento');'><i class='fa fa-plus-square fa-lg'></i> Agregar</a>";                                      
+			}
+			?>
 		</div>
 	</div>
 	<table id="tableDataDocumentosClientes" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" style="width:100%;">
@@ -20,7 +26,7 @@
 			<th>Fecha</th>
 			<th>Documento</th>
 			<th>Registrado por</th>
-			<th>Año-Semestre</th>
+			<th>Aï¿½o-Semestre</th>
 			<th>Usuario actualiza</th>
 			<th>Vencimiento</th>
 			<th>Estado</th>
@@ -42,15 +48,25 @@
 		?>
 		
 				<tr>
+
 					<td align="center">
-						<a href="javascript:editDocumento(<?=$idClienteDocumento?>,'clientes','documento');"><img border="0" alt="Editar operación" title="Editar documento" src="./images/editar.png"></a>
 						<?
-							if ($_SESSION["profile_text"] != "Cliente"){							
+						if ($appObj->tienePermisosAccion(array("documentos_editar_terceros")))
+						{
+							//Opcion a ejecutar si tiene el permiso
+							echo "<a href='javascript:editDocumento(<?=$idClienteDocumento?>,'clientes','documento');'><img border='0' alt='Editar operaciï¿½n' title='Editar documento' src='./images/editar.png'>Editar</a>";
+						}
 						?>
-								<a href="javascript:deleteDocumento(<?=$idClienteDocumento?>,'clientes','deleteDocumento',<?=$idEstadoDocumento ?>);"><img border="0" alt="Editar operación" title="Eliminar documento" src="./images/eliminar.png"></a>
-						<?php
+						
+						<?
+							if ($_SESSION["profile_text"] != "Cliente"){	
+								if ($appObj->tienePermisosAccion(array("documentos_eliminar_terceros")))
+								{
+									//Opcion a ejecutar si tiene el permiso
+									echo "<a href='javascript:deleteDocumento(<?=$idClienteDocumento?>,'clientes','deleteDocumento',<?=$idEstadoDocumento ?)><img border='0' alt='Editar operaciï¿½n' title='Eliminar documento' src='./images/eliminar.png'>Eliminar</a>";
+								}	
 							}
-						?>
+							?>
 					</td>
 					<td><?=$rsDocumentos->fields["fecha"]?></td>
 					<td><?=$rsDocumentos->fields["tipo_documento"]?></td>
@@ -108,7 +124,7 @@ function deleteDocumento(idDocumento, mod, action, idEstado) {
 	if (idEstado == 1){
 	
 		bootbox.confirm({
-			title: "Confirmación",
+			title: "Confirmaciï¿½n",
 			message: "Usted va a eliminar el documento. El proceso no se podra deshacer.<br/><br/>Realmente desea continuar?",
 			closeButton: true,
 			buttons: {
@@ -141,7 +157,7 @@ function deleteDocumento(idDocumento, mod, action, idEstado) {
 							data:dataForm,
 							success: function (response) {
 								closeNotify();
-								showSuccess("Transacción exitosa. Espere por favor...");
+								showSuccess("Transacciï¿½n exitosa. Espere por favor...");
 								cargarInfoDocumentos();
 							}
 					});
@@ -160,7 +176,7 @@ function deleteDocumento(idDocumento, mod, action, idEstado) {
 function aprobarDocumento(idDocumento, mod, action) {
 
 	bootbox.prompt({
-		title: "Confirmación",
+		title: "Confirmaciï¿½n",
 		message: "Usted va aprobar el documento. El proceso no se podra deshacer.<br/><br/>Realmente desea continuar?<br/><br/>Comentarios:",
 		closeButton: true,
 		inputType: 'textarea',
@@ -199,11 +215,11 @@ function aprobarDocumento(idDocumento, mod, action) {
 						success: function (response) {
 							closeNotify();
 							if (response.Success){
-								showSuccess("Transacción exitosa. Espere por favor...");
+								showSuccess("Transacciï¿½n exitosa. Espere por favor...");
 								cargarInfoDocumentos();
 							}
 							else 
-								showError("Por favor ingrese el año del documento para realizar el proceso.");
+								showError("Por favor ingrese el aï¿½o del documento para realizar el proceso.");
 						}
 				});
 			}

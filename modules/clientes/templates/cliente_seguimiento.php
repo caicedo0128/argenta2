@@ -27,7 +27,7 @@ function saveSeguimiento(){
 			success: function (response) {
 				closeNotify();
 				if (response.Success){
-					showSuccess("Transacción exitosa. Espere por favor...");
+					showSuccess("Transacciï¿½n exitosa. Espere por favor...");
 					cargarInfoSeguimiento();
 				}
 			}
@@ -48,7 +48,7 @@ function saveSeguimiento(){
 <div class="row col-md-12" style="height:10px;">&nbsp;</div>
 <div class="panel panel-primary col-md-offset-2 col-md-9" style="padding-right:0px !important;padding-left:0px !important;">
     <div class="panel-body">
-        Registro de información de seguimiento / tarea
+        Registro de informacion de seguimiento / tarea
         <div class="cerrar_form" onclick="cargarInfoSeguimiento();" title="Regresar"><i class="fa fa-reply fa-lg"></i></div>
         <hr/>
         <form id="datosRegistroTarea" method="post" name="datosRegistroTarea" action="admindex.php" method="post" enctype="multipart/form-data">

@@ -45,7 +45,7 @@ function EditarVinculacion(){
             success: function (response) {
                 closeNotify();
                 if (response.Success){
-                    showSuccess("Transacción exitosa. Espere por favor...");
+                    showSuccess("Transacciï¿½n exitosa. Espere por favor...");
                     cargarInfoAnexo();
                 }
                 else{
@@ -158,7 +158,7 @@ function validarRetCuentasME(cuentasMe){
 
 <div class="row-fluid">
     <div class="col-md-12 bg-primary-custom">
-        <h4>Información adicional del tercero</h4>
+        <h4>Informaciï¿½n adicional del tercero</h4>
     </div>
 </div>
 <br/>
@@ -169,7 +169,7 @@ function validarRetCuentasME(cuentasMe){
         <input type="hidden" name="mod" id="mod" value="clientes" />
         <input type="hidden" name="action" id="action" value="EditarVinculacion" />
         <input type="hidden" name="id_cliente" id="id_cliente" value="<?=$this->id_cliente?>" />
-			<div class="row-fluid alert alert-info">Información general del negocio</div>
+			<div class="row-fluid alert alert-info">Informaciï¿½n general del negocio</div>
 			<div class="row">
                 <div class="col-md-3 labelCustom">
 					Sector:
@@ -205,7 +205,7 @@ function validarRetCuentasME(cuentasMe){
 					</div>
                 </div>
                 <div class="col-md-3 labelCustom">
-					Tipo de régimen:
+					Tipo de rï¿½gimen:
 					<div class="">
 					<?php
 						$sede_select = new Select("tipo_empresa","tipo_empresa",$this->arrTipos,"",1,"", "form-control required", 0, "", "", 0);
@@ -243,7 +243,7 @@ function validarRetCuentasME(cuentasMe){
 					</div>
                 </div>
                 <div class="col-md-2 labelCustom">
-					Rtf gestión referenciación:
+					Rtf gestiï¿½n referenciaciï¿½n:
 					<div class="">
 					<?php
 						$c_textbox = new Textbox;
@@ -306,7 +306,7 @@ function validarRetCuentasME(cuentasMe){
 					</div>
                 </div>
 				<div class="col-md-2 labelCustom">
-					Evolución de ventas(<?=date("Y")-2?>):
+					Evoluciï¿½n de ventas(<?=date("Y")-2?>):
 					<div class="">
 					<?php
 						echo $c_textbox->Textbox("evolucion_vta_anio_anterior", "evolucion_vta_anio_anterior", 1, $clienteAdicional->evolucion_vta_anio_anterior, "form-control", 50, "", "", "", "","return IsNumber(event);");
@@ -314,7 +314,7 @@ function validarRetCuentasME(cuentasMe){
 					</div>
                 </div>
 				<div class="col-md-2 labelCustom">
-					Evolución de ventas(<?=date("Y")-1?>):
+					Evoluciï¿½n de ventas(<?=date("Y")-1?>):
 					<div class="">
 					<?php
 						echo $c_textbox->Textbox("evolucion_vta_anio_actual", "evolucion_vta_anio_actual", 1, $clienteAdicional->evolucion_vta_anio_actual, "form-control", 50, "", "", "", "","return IsNumber(event);");
@@ -322,7 +322,7 @@ function validarRetCuentasME(cuentasMe){
 					</div>
                 </div>
 				<div class="col-md-2 labelCustom">
-					Número empleados:
+					Nï¿½mero empleados:
 					<div class="">
 					<?php
 						$sede_select = new Select("id_numero_empleados","id_numero_empleados",$arrNumEmpleados,"",1,"", "form-control required", 0, "", "", 0);
@@ -344,7 +344,7 @@ function validarRetCuentasME(cuentasMe){
 					</div>
                 </div>
 				<div class="col-md-3 labelCustom">
-					Cómo se enteró de nuestra compañia:
+					Cï¿½mo se enterï¿½ de nuestra compaï¿½ia:
 					<div class="">
 					<?php
 						$sede_select = new Select("id_referencia","id_referencia",$arrReferencias,"",1,"", "form-control required", 0, "", "", 0);
@@ -356,9 +356,9 @@ function validarRetCuentasME(cuentasMe){
                 </div>
             </div>
 			<div class="row" style="height:10px;">&nbsp;</div>
-            <div class="row-fluid alert alert-info">Relación principales clientes
+            <div class="row-fluid alert alert-info">Relaciï¿½n principales clientes
             		<a href="javascript:agregarReferencia();" class="btn btn-primary btn-sm" title="Agregar referencia"><i class="fa fa-plus-square fa-lg"></i> Agregar</a>
-            		<a href="javascript:quitarReferencia();" id="btn_quitar_ref" class="btn btn-danger btn-sm" title="Quitar referencia" style="display:none;"><i class="fa fa-minus fa-lg"></i> Quitar último</a>
+            		<a href="javascript:quitarReferencia();" id="btn_quitar_ref" class="btn btn-danger btn-sm" title="Quitar referencia" style="display:none;"><i class="fa fa-minus fa-lg"></i> Quitar ï¿½ltimo</a>
             </div>
             <div class="row-fluid">
 
@@ -380,7 +380,7 @@ function validarRetCuentasME(cuentasMe){
 								<input type="hidden" id="descontar_facturas<?=$i?>" name="descontar_facturas<?=$i?>" value="1">
 								<input type="hidden" id="monto_descuento<?=$i?>" name="monto_descuento<?=$i?>" value="0">
 								<div class="col-md-6 labelCustom">
-									<span class="label label-info"><?=$i?></span> Razón social:
+									<span class="label label-info"><?=$i?></span> Razï¿½n social:
 									<div class="">
 									<?php
 										echo $c_textbox->Textbox("ref_empresa".$i, "", $requerido, $rsRefClientes->fields["empresa"], "form-control", 30, "", "", "");
@@ -388,7 +388,7 @@ function validarRetCuentasME(cuentasMe){
 									</div>
 								</div>
 								<div class="col-md-3 labelCustom">
-									Identificación:
+									Identificaciï¿½n:
 									<div class="">
 									<?php
 										echo $c_textbox->Textbox("ref_nit".$i, "", $requerido, $rsRefClientes->fields["nit"], "form-control", 30, "", "", "");
@@ -421,7 +421,7 @@ function validarRetCuentasME(cuentasMe){
 									</div>
 								</div>
 								<div class="col-md-3 labelCustom">
-									¿Hace cuanto trabajas con éste cliente?:
+									ï¿½Hace cuanto trabajas con ï¿½ste cliente?:
 									<div class="">
 									<?php
 										$sede_select = new Select("id_relacion_comercial".$i,"id_relacion_comercial",$arrRelacionesComercial,"",$requerido,"", "form-control", 0, "", "", 0);
@@ -456,7 +456,7 @@ function validarRetCuentasME(cuentasMe){
 			<div class="row" style="height:10px;">&nbsp;</div>
             <div class="row-fluid alert alert-info">Conocimiento de socios, accionistas, representante legal (principal, suplente) y beneficiario final
             		<a href="javascript:agregarSocio();" id="btn_agregar_socio" class="btn btn-primary btn-sm" title="Agregar socio"><i class="fa fa-plus-square fa-lg"></i> Agregar</a>
-            		<a href="javascript:quitarSocio();" id="btn_quitar_socio" class="btn btn-danger btn-sm" title="Quitar socio" style="display:none;"><i class="fa fa-minus fa-lg"></i> Quitar último</a>
+            		<a href="javascript:quitarSocio();" id="btn_quitar_socio" class="btn btn-danger btn-sm" title="Quitar socio" style="display:none;"><i class="fa fa-minus fa-lg"></i> Quitar ï¿½ltimo</a>
             </div>
             <div class="row-fluid">
 
@@ -502,7 +502,7 @@ function validarRetCuentasME(cuentasMe){
 								</div>
 							</div>
 							<div class="col-md-3 labelCustom">
-								Identificación:
+								Identificaciï¿½n:
 								<div class="">
 								<?php
 									echo $c_textbox->Textbox("identificacion".$i, "", $requerido, $rsSocios->fields["identificacion"], "form-control", 30, "", "", "");
@@ -510,7 +510,7 @@ function validarRetCuentasME(cuentasMe){
 								</div>
 							</div>
 							<div class="col-md-3 labelCustom">
-								Nombre/Razón social completa:
+								Nombre/Razï¿½n social completa:
 								<div class="">
 								<?php
 									echo $c_textbox->Textbox("razon_social".$i, "", $requerido, $rsSocios->fields["razon_social"], "form-control", 30, "", "", "");
@@ -521,7 +521,7 @@ function validarRetCuentasME(cuentasMe){
 						<div class="row <?=$well?>" style="height:10px;">&nbsp;</div>
 						<div class="row <?=$well?>">
 							<div class="col-md-3 labelCustom">
-								País Residencia/ Ubicación:
+								Paï¿½s Residencia/ Ubicaciï¿½n:
 								<div class="">
 								<?php
 									$sede_select = new Select("pais_ubicacion".$i,"pais_ubicacion",$arrPaisesDesc,"",$requerido,"", "form-control pais_ubicacion", 0, "", "", 0);
@@ -532,7 +532,7 @@ function validarRetCuentasME(cuentasMe){
 								</div>
 							</div>
 							<div class="col-md-3 labelCustom">
-								¿Es (PEP’s)?:
+								ï¿½Es (PEPï¿½s)?:
 								<div id="divRadiopoliticamente_expuesta<?=$i?>" class="radioValidate" style="width:auto;">
 								<?php
 									$c_radio = new Radio;
@@ -544,7 +544,7 @@ function validarRetCuentasME(cuentasMe){
 								</div>
 							</div>
 							<div class="col-md-3 labelCustom">
-								¿Tiene algún vínculo con(PEP’s)?:
+								ï¿½Tiene algï¿½n vï¿½nculo con(PEPï¿½s)?:
 								<div id="divRadiotipo_vinculacion_persona<?=$i?>" class="radioValidate" style="width:auto;">
 								<?php
 									$c_radio = new Radio;
@@ -592,10 +592,10 @@ function validarRetCuentasME(cuentasMe){
 
             </div>
 			<div class="row" style="height:10px;">&nbsp;</div>
-            <div class="row-fluid alert alert-info">Gestión de LA/FT y declaración de origen de fondos y/o bienes</div>
+            <div class="row-fluid alert alert-info">Gestiï¿½n de LA/FT y declaraciï¿½n de origen de fondos y/o bienes</div>
             <div class="row">
                 <div class="col-md-12" style="text-align:justify;">
-                Declaración de origen de fondos y/o bienes:
+                Declaraciï¿½n de origen de fondos y/o bienes:
 				<?php
 					$c_textarea = new Textarea;
 					echo $c_textarea->Textarea("declaracion_origen_fondos", "declaracion_origen_fondos", 1, $this->declaracion_origen_fondos, "form-control", 30, "", "", "");
@@ -608,7 +608,7 @@ function validarRetCuentasME(cuentasMe){
 					<div class="row" style="height:10px;">&nbsp;</div>
 					<div class="row">
 						<div class="col-md-3">
-							¿Realiza operaciones en moneda extranjera?:
+							ï¿½Realiza operaciones en moneda extranjera?:
 							<div id="divRadiomoneda_extranjera" class="radioValidate" style="width:auto;">
 							<?php
 								$c_radio = new Radio;
@@ -621,7 +621,7 @@ function validarRetCuentasME(cuentasMe){
 							</div>
 						</div>
 						<div class="col-md-9 operacion_me">
-							¿Cuáles?:
+							ï¿½Cuï¿½les?:
 							<div id="">
 							<?php
 								$c_textarea = new Textarea;
@@ -633,7 +633,7 @@ function validarRetCuentasME(cuentasMe){
 					<div class="row" style="height:10px;">&nbsp;</div>
 					<div class="row">
 						<div class="col-md-3">
-							¿Posee cuentas en moneda extranjera?
+							ï¿½Posee cuentas en moneda extranjera?
 							<div id="divRadiocuentas_moneda_extranjera" class="radioValidate" style="width:auto;">
 							<?php
 							$arrMoneda = array("1"=>"SI","2"=>"NO");
@@ -680,7 +680,7 @@ function validarRetCuentasME(cuentasMe){
 							</div>
 						</div>
 						<div class="col-md-3">
-							País:
+							Paï¿½s:
 							<div id="">
 							<?php
 								echo $c_textbox->Textbox("pais_me", "", 1, $this->pais_me, "form-control", 30, "", "", "");
@@ -691,7 +691,7 @@ function validarRetCuentasME(cuentasMe){
 					<div class="row" style="height:10px;">&nbsp;</div>
 					<div class="row">
 						<div class="col-md-3">
-							¿Administra recursos públicos?
+							ï¿½Administra recursos pï¿½blicos?
 							<div id="divRadiorecursos_publicos" class="radioValidate" style="width:auto;">
 							<?php
 								$c_radio = new Radio;
@@ -710,9 +710,15 @@ function validarRetCuentasME(cuentasMe){
         </form>
         <div class="row" style="height:10px;">&nbsp;</div>
         <center>
-            <input type="button" value="Editar" class="btn btn-primary datosRegistroEditarVinculacion_btnIniciarEdicion" onclick="iniciarEdicion()">
+		<?
+		if ($appObj->tienePermisosAccion(array("informacion_adicional_terceros")))
+        {
+        	//Opcion a ejecutar si tiene el permiso
+			echo "<input type='button' value='Editar' class='btn btn-primary datosRegistroEditarVinculacion_btnIniciarEdicion' onclick='iniciarEdicion()'>";
+        }
+        ?>
             <input type="button" value="Guardar" class="btn btn-success datosRegistroEditarVinculacion_btnSave" onclick="EditarVinculacion();">
-            <div id="msgEnvio" class="alert alert-info" style="display:none;">Enviando información. Espere por favor...</>
+            <div id="msgEnvio" class="alert alert-info" style="display:none;">Enviando informaciï¿½n. Espere por favor...</>
         </center>
         <div class="row" style="height:10px;">&nbsp;</div>
     </div>

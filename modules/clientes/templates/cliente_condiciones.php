@@ -27,7 +27,7 @@ function saveCondicion(){
 			success: function (response) {
 				closeNotify();
 				if (response.Success){
-					showSuccess("Transacción exitosa. Espere por favor...");
+					showSuccess("Transacciï¿½n exitosa. Espere por favor...");
 					cargarInfoAdicional();
 				}
 			}
@@ -61,7 +61,7 @@ function saveResolucion(){
 			success: function (response) {
 				closeNotify();
 				if (response.Success){
-					showSuccess("Transacción exitosa. Espere por favor...");
+					showSuccess("Transacciï¿½n exitosa. Espere por favor...");
 					cargarInfoAdicional();
 				}
 			}
@@ -95,7 +95,7 @@ function saveResolucion2(){
 			success: function (response) {
 				closeNotify();
 				if (response.Success){
-					showSuccess("Transacción exitosa. Espere por favor...");
+					showSuccess("Transacciï¿½n exitosa. Espere por favor...");
 					cargarInfoAdicional();
 				}
 			}
@@ -119,13 +119,13 @@ function saveResolucion2(){
 </style>
 <div class="row-fluid">
     <div class="col-md-12 bg-primary-custom">
-        <h4>Información de parámetros del tercero</h4>
+        <h4>Informacion de parametros del tercero</h4>
     </div>
 </div>
 <div class="row col-md-12" style="height:10px;">&nbsp;</div>
 <div class="panel panel-primary col-md-offset-2 col-md-9" style="padding-right:0px !important;padding-left:0px !important;">
     <div class="panel-body">
-        Registro de información de condiciones
+        Registro de informacion de condiciones
         <hr/>
         <form id="datosRegistroCondicion" method="post" name="datosRegistroCondicion" action="admindex.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="Ajax" id="Ajax" value="true" />
@@ -150,7 +150,7 @@ function saveResolucion2(){
 				</div>
 
             	<div class="col-md-4">
-            		<div class="">Plazo(días):</div>
+            		<div class="">Plazo(dias):</div>
 					<div id="divRadiodias" class="radioValidate" style="width:auto;">
 					<?php
 						$c_radio = new Radio;
@@ -178,13 +178,19 @@ function saveResolucion2(){
             </form>
             <div class="row" style="height:10px;">&nbsp;</div>
             <center>
-                <input type="button" value="Guardar" class="btn btn-primary datos_cliente_btnSave" onclick="saveCondicion();">
+				<?
+				if ($appObj->tienePermisosAccion(array("parametros_condiciones_terceros")))
+				{
+					//Opcion a ejecutar si tiene el permiso
+					echo "<input type='button' value='Guardar' class='btn btn-primary datos_cliente_btnSave' onclick='saveCondicion();'>";
+				}
+				?>
             </center>
     </div>
 </div>
 <div class="panel panel-primary col-md-offset-2 col-md-9" style="padding-right:0px !important;padding-left:0px !important;">
     <div class="panel-body">
-        Registro de información de resolución de facturación 1
+        Registro de informacion de resolucion de facturacion 1
         <hr class="separador_titulo"/>
         <form id="datosResolucion" method="post" name="datosResolucion" action="index.php">
         <input type="hidden" name="Ajax" id="Ajax" value="true" />
@@ -195,7 +201,7 @@ function saveResolucion2(){
         <input type="hidden" name="registro" id="registro" value="1" />
         <div class="row row-form">
 			<div class="col-md-4">
-				Resolución:
+				Resolucion:
 				<div class="">
 				<?php
 					$c_textbox = new Textbox;
@@ -255,13 +261,19 @@ function saveResolucion2(){
 		<div class="row col-md-12" style="height:10px;">&nbsp;</div>
 		</form>
 		<center>
-				<input type="button" class="btn btn-primary" onclick="saveResolucion();" value="Guardar"/>
+				<?
+				if ($appObj->tienePermisosAccion(array("parametros_facturacion1_terceros")))
+				{
+					//Opcion a ejecutar si tiene el permiso
+					echo "<input type='button' class='btn btn-primary' onclick='saveResolucion();' value='Guardar'/>";
+				}
+				?>
 		</center>
 	</div>
 </div>
 <div class="panel panel-primary col-md-offset-2 col-md-9" style="padding-right:0px !important;padding-left:0px !important;">
     <div class="panel-body">
-        Registro de información de resolución de facturación 2
+        Registro de informacion de resolucion de facturacion 2
         <hr class="separador_titulo"/>
         <form id="datosResolucion2" method="post" name="datosResolucion2" action="index.php">
         <input type="hidden" name="Ajax" id="Ajax" value="true" />
@@ -272,7 +284,7 @@ function saveResolucion2(){
         <input type="hidden" name="registro" id="registro" value="2" />
         <div class="row row-form">
 			<div class="col-md-4">
-				Resolución:
+				Resoluciï¿½n:
 				<div class="">
 				<?php
 					$c_textbox = new Textbox;
@@ -332,7 +344,13 @@ function saveResolucion2(){
 		<div class="row col-md-12" style="height:10px;">&nbsp;</div>
 		</form>
 		<center>
-				<input type="button" class="btn btn-primary" onclick="saveResolucion2();" value="Guardar"/>
+				<?
+				if ($appObj->tienePermisosAccion(array("parametros_factoturacion2_terceros")))
+				{
+					//Opcion a ejecutar si tiene el permiso
+					echo "<input type='button' class='btn btn-primary' onclick='saveResolucion2();' value='Guardar'/>";
+				}
+				?>
 		</center>
 	</div>
 </div>

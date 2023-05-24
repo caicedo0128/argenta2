@@ -28,7 +28,7 @@ function saveClient(){
                 success: function (response) {
                     closeNotify();
                     if (response.Success){
-                        showSuccess("Transacción exitosa. Espere por favor...");
+                        showSuccess("Transacciï¿½n exitosa. Espere por favor...");
                         window.setTimeout(function(){
                             loader();
                             $("#content_clientes").load('admindex.php', { Ajax:true, id_cliente: response.IdCliente, mod: 'clientes', action:'client'}, function () {
@@ -50,8 +50,8 @@ function saveClient(){
 function cambiarEstado(nuevoEstado,proceso){
 
 	bootbox.prompt({
-		title: "Confirmación",
-		message: "Usted va a " + proceso + " el tercero. El proceso no se podrá deshacer. Desea continuar?<br/><br/>Ingrese comentarios:",
+		title: "Confirmaciï¿½n",
+		message: "Usted va a " + proceso + " el tercero. El proceso no se podrï¿½ deshacer. Desea continuar?<br/><br/>Ingrese comentarios:",
 		closeButton: true,
 		inputType: 'textarea',
 		buttons: {
@@ -98,7 +98,7 @@ function cambiarEstado(nuevoEstado,proceso){
 						success: function (response) {
 							closeNotify();
 							if (response.Success){
-								showSuccess("Transacción exitosa. Espere por favor...");
+								showSuccess("Transacciï¿½n exitosa. Espere por favor...");
 								window.setTimeout(function(){
 									loader();
 									$("#content_clientes").load('admindex.php', { Ajax:true, id_cliente: response.IdCliente, mod: 'clientes', action:'client'}, function () {
@@ -120,7 +120,7 @@ function validarTipoTercero(){
 
     var idTipo = $("#id_tipo_tercero").val();
     var idTipoS = $("#id_tipo_tercero_sec").val();
-    $(".titulo_razon_social").text("Razón social:");
+    $(".titulo_razon_social").text("Razï¿½n social:");
     $(".titulo_representante").show();
     $(".pagador").hide();
     $(".emisor").hide();
@@ -346,7 +346,7 @@ function enviarReporte(){
 
 	if ($("#custom_data_to_email").valid()) {
 
-		showLoading("Enviando información por correo electrónico...");
+		showLoading("Enviando informaciï¿½n por correo electrï¿½nico...");
 		var tipoReporte = $("#tipo_reporte").val();
 
 
@@ -355,10 +355,10 @@ function enviarReporte(){
 			action = "VerReporte";
 			subjectMail = "Formato oferta";
 		}
-		//REPORTE Pagaré
+		//REPORTE Pagarï¿½
 		else if (tipoReporte == 2){
 			action = "VerFormatoPagare";
-			subjectMail = "Pagaré";
+			subjectMail = "Pagarï¿½";
 		}
 		//REPORTE i
 		else if (tipoReporte == 3){
@@ -405,7 +405,7 @@ function enviarReporte(){
 								success: function (response) {
 									closeNotify();
 									if (response.Success) {
-										showSuccess("Transacción exitosa. Espere por favor...");
+										showSuccess("Transacciï¿½n exitosa. Espere por favor...");
 										$('#modalToMail').modal('hide');
 									}
 									else{
@@ -430,7 +430,7 @@ function savePagare(idCliente){
 
     if (pagare != ""){
 
-        showLoading("Enviando información. Espere por favor...");
+        showLoading("Enviando informaciï¿½n. Espere por favor...");
 
         var strUrl = "admindex.php";
         var dataForm = "Ajax=true&mod=clientes&action=savePagare&id_cliente=" + idCliente + "&nro_pagare=" + pagare + "&fecha_generacion_pagare=" + fechaGeneracion;
@@ -442,7 +442,7 @@ function savePagare(idCliente){
                 success: function (response) {
                     closeNotify();
                     if (response.Success){
-                        showSuccess("Transacción exitosa. Espere por favor...");
+                        showSuccess("Transacciï¿½n exitosa. Espere por favor...");
                         cargarFormatoPagare();
                     }
                     else{
@@ -452,7 +452,7 @@ function savePagare(idCliente){
         });
     }
     else {
-        showError("El número de pagaré es obligatorio.");
+        showError("El nï¿½mero de pagarï¿½ es obligatorio.");
     }
 }
 
@@ -465,7 +465,7 @@ function descargarReporte(tipoReporte){
         action = "VerReporte";
         nombreReporte = "Oferta.pdf";
     }
-    //REPORTE Pagaré
+    //REPORTE Pagarï¿½
     else if (tipoReporte == 2){
         action = "VerFormatoPagare";
         nombreReporte = "Pagare.pdf";
@@ -531,7 +531,7 @@ function rechazarCliente(){
 		success: function (response) {
 			loader();
 			var dialog = bootbox.dialog({
-				title: "Confirmación motivo rechazo",
+				title: "Confirmaciï¿½n motivo rechazo",
 				message: response
 			});
 			$(".bootbox").show().addClass("show");
@@ -566,7 +566,7 @@ function verificar(tipoVerificacion){
 		success: function (response) {
 			loader();
 			var dialog = bootbox.dialog({
-				title: "Registrar verificación",
+				title: "Registrar verificaciï¿½n",
 				message: response
 			});
 			$(".bootbox").show().addClass("show");
@@ -603,11 +603,11 @@ function descargarPDF() {
 
 					pdf.setFontSize(7);
 					pdf.setTextColor(150);
-					pdf.text('Página ' + i + ' de ' + totalPages, (pdf.internal.pageSize.getWidth()-1), 10.8);
+					pdf.text('Pï¿½gina ' + i + ' de ' + totalPages, (pdf.internal.pageSize.getWidth()-1), 10.8);
 
 					pdf.setFontSize(7);
 					pdf.setTextColor(150);
-                    pdf.text('ARGENTA ESTRUCTURADORES S.A.S - BOGOTÁ D.C - COLOMBIA', 0.2, 10.8);
+                    pdf.text('ARGENTA ESTRUCTURADORES S.A.S - BOGOTï¿½ D.C - COLOMBIA', 0.2, 10.8);
 
 				  }
 			  }).save();
@@ -629,7 +629,7 @@ function descargarPDF() {
 </style>
 <div class="panel panel-primary">
     <div class="panel-body ">
-        Registro de información del tercero
+        Registro de informacion del tercero
         <?php
         	if ($this->id_cliente != 0){
         		echo "<span class='label label-primary text-white' style='padding:5px;font-size:12px;'>ID: ".$this->id_cliente."</span>&nbsp;";
@@ -642,7 +642,7 @@ function descargarPDF() {
         			if ($verificacionSagrilaft->fields["valor_verificacion"] == 2)
         				$classSagrilaft = "warning";
         		}
-        		echo "<span class='label label-".$classSagrilaft." text-white' style='padding:5px;font-size:12px;cursor:pointer;' onclick='verificar(1)' title='Verificación listas SAGRILAFT'>SAGRILAFT</span>&nbsp;";
+        		echo "<span class='label label-".$classSagrilaft." text-white' style='padding:5px;font-size:12px;cursor:pointer;' onclick='verificar(1)' title='Verificaciï¿½n listas SAGRILAFT'>SAGRILAFT</span>&nbsp;";
 
         		$classCliente = "success";
         		if ($verificacionCliente->_numOfRows == 0)
@@ -651,7 +651,7 @@ function descargarPDF() {
         			if ($verificacionCliente->fields["valor_verificacion"] == 2)
         				$classCliente = "warning";
         		}
-        		echo "<span class='label label-".$classCliente." text-white' style='padding:5px;font-size:12px;cursor:pointer;' onclick='verificar(2)' title='Verificación conocimiento cliente'>C. CLIENTE</span>&nbsp;";
+        		echo "<span class='label label-".$classCliente." text-white' style='padding:5px;font-size:12px;cursor:pointer;' onclick='verificar(2)' title='Verificaciï¿½n conocimiento cliente'>C. CLIENTE</span>&nbsp;";
 
         		$classOperacion = "success";
         		if ($verificacionOperacion->_numOfRows == 0)
@@ -660,8 +660,8 @@ function descargarPDF() {
         			if ($verificacionOperacion->fields["valor_verificacion"] == 2)
         				$classOperacion = "warning";
         		}
-        		echo "<span class='label label-".$classOperacion." text-white' style='padding:5px;font-size:12px;cursor:pointer;' onclick='verificar(3)' title='Verificación conocimiento operación'>C. OPERACION</span>&nbsp;";
-        		echo "<span class='label label-info text-white' style='padding:5px;font-size:12px;'>Ultima fecha operación: ".($ultimaFecha != ""?$ultimaFecha:"No registra")."</span>&nbsp;";
+        		echo "<span class='label label-".$classOperacion." text-white' style='padding:5px;font-size:12px;cursor:pointer;' onclick='verificar(3)' title='Verificaciï¿½n conocimiento operaciï¿½n'>C. OPERACION</span>&nbsp;";
+        		echo "<span class='label label-info text-white' style='padding:5px;font-size:12px;'>Ultima fecha operaciï¿½n: ".($ultimaFecha != ""?$ultimaFecha:"No registra")."</span>&nbsp;";
         	}
         ?>
         <?php
@@ -756,7 +756,7 @@ function descargarPDF() {
             <div class="row" style="height:10px;">&nbsp;</div>
             <div class="row">
                 <div class="col-md-6 labelCustom">
-					<span class="titulo_razon_social">Nombre o Razón social:</span>
+					<span class="titulo_razon_social">Nombre o Razï¿½n social:</span>
 					<div class="">
 					<?php
 						echo $c_textbox->Textbox ("razon_social", "", 1, "$this->razon_social", "form-control", 30, "", "", "");
@@ -764,7 +764,7 @@ function descargarPDF() {
 					</div>
                 </div>
                 <div class="col-md-3 labelCustom">
-					Fecha constitución:
+					Fecha constituciï¿½n:
 					<div class="">
 					<?php
 						echo $c_textbox->Textbox ("fecha_constitucion", "fecha_constitucion", 1, $this->fecha_consticucion, "form-control", 30, "", "", "");
@@ -864,7 +864,7 @@ function descargarPDF() {
 					</div>
                 </div>
 				<div class="col-md-3 labelCustom">
-					Ciudad expedición:
+					Ciudad expediciï¿½n:
 					<div class="">
 					<?php
 
@@ -895,7 +895,7 @@ function descargarPDF() {
 					</div>
                 </div>
 				<div class="col-md-3 labelCustom">
-					Ciudad expedición:
+					Ciudad expediciï¿½n:
 					<div class="">
 					<?php
 
@@ -964,7 +964,7 @@ function descargarPDF() {
 					</div>
                 </div>
                 <div class="col-md-1 labelCustom ejecutivo">
-					Comisión:
+					Comisiï¿½n:
 					<div class="">
 					<?php
 						echo $c_textbox->Textbox ("comision", "comision", 1, $this->comision, "form-control number", 50, "7", "", "","","return IsNumber(event);");
@@ -978,23 +978,69 @@ function descargarPDF() {
             <center>
                 <input type="button" value="Guardar" class="btn btn-primary datos_cliente_btnSave" onclick="saveClient();">
 				<?php
-					if ($this->id_cliente != 0)
+					/*if ($this->id_cliente != 0)
 					{
 						//CONTROLAMOS ESTADO CREADO
 						if ($this->activo == 0){
+							if ($appObj->tienePermisosAccion(array("activar_terceros")))
+        					{
+							//Opcion a ejecutar si tiene el permiso
 							echo "<input type=\"button\" value=\"Activar\" class=\"btn btn-success datos_cliente_btnSave\" onclick=\"cambiarEstado(1,'activar');\">";
+        					}
+
+							if ($appObj->tienePermisosAccion(array("inactivar_terceros")))
+        					{
+							//Opcion a ejecutar si tiene el permiso
 							echo "<input type=\"button\" value=\"Inactivar\" class=\"btn btn-danger datos_cliente_btnSave\" onclick=\"cambiarEstado(2,'inactivar');\">";
+        					}
+
+							if ($appObj->tienePermisosAccion(array("rechazar_terceros")))
+        					{
+							//Opcion a ejecutar si tiene el permiso
 							echo "<input type=\"button\" value=\"Rechazar\" class=\"btn btn-warning datos_cliente_btnSave\" onclick=\"rechazarCliente();\">";
-						}
+        					}
+							
+						}*/
 
-						if ($this->activo == 2){
+						if ($appObj->tienePermisosAccion(array("activar_terceros")))
+        					{
+							//Opcion a ejecutar si tiene el permiso
 							echo "<input type=\"button\" value=\"Activar\" class=\"btn btn-success datos_cliente_btnSave\" onclick=\"cambiarEstado(1,'activar');\">";
-						}
+        					}
 
-						if ($this->activo == 1){
+							if ($appObj->tienePermisosAccion(array("inactivar_terceros")))
+        					{
+							//Opcion a ejecutar si tiene el permiso
 							echo "<input type=\"button\" value=\"Inactivar\" class=\"btn btn-danger datos_cliente_btnSave\" onclick=\"cambiarEstado(2,'inactivar');\">";
+        					}
+
+							if ($appObj->tienePermisosAccion(array("rechazar_terceros")))
+        					{
+							//Opcion a ejecutar si tiene el permiso
+							echo "<input type=\"button\" value=\"Rechazar\" class=\"btn btn-warning datos_cliente_btnSave\" onclick=\"rechazarCliente();\">";
+        					}
+
+						
+						/*if ($this->activo == 2){
+							if ($appObj->tienePermisosAccion(array("rechazar_terceros")))
+        					{
+							//Opcion a ejecutar si tiene el permiso
+							echo "<input type=\"button\" value=\"Activar\" class=\"btn btn-success datos_cliente_btnSave\" onclick=\"cambiarEstado(1,'activar');\">";
+        					}
 						}
-                	}
+						
+						if ($this->activo == 1){
+							if ($appObj->tienePermisosAccion(array("rechazar_terceros")))
+        					{
+							//Opcion a ejecutar si tiene el permiso
+							echo "<input type=\"button\" value=\"Inactivar\" class=\"btn btn-danger datos_cliente_btnSave\" onclick=\"cambiarEstado(2,'inactivar');\">";
+        					}
+						}
+                	}*/
+					
+					
+
+
                 ?>
 
             </center>
@@ -1004,17 +1050,38 @@ function descargarPDF() {
                 if ($this->id_cliente != 0){
             ?>
                 <ul class="nav nav-tabs tabs_cliente" role="tablist">
-                    <li role="presentation" class="tab_custom active info_anexo"><a href="#info_anexo" onclick="cargarInfoAnexo();" aria-controls="info_anexo" role="tab" data-toggle="tab">Información adicional</a></li>
+                    <li role="presentation" class="tab_custom active info_anexo"><a href="#info_anexo" onclick="cargarInfoAnexo();" aria-controls="info_anexo" role="tab" data-toggle="tab">Informacion adicional</a></li>
                     <li role="presentation" class="tab_custom documentos_cliente"><a href="#documentos_cliente" onclick="cargarInfoDocumentos();" aria-controls="documentos_cliente" role="tab" data-toggle="tab" >Documentos</a></li>
                     <?php
                     	if ($this->id_tipo_tercero == 1 || $this->id_tipo_tercero_sec == 1)
                     	{
                     ?>
-						<li role="presentation" class="tab_custom"><a href="#info_condicion" onclick="cargarInfoAdicional();" aria-controls="info_condicion" role="tab" data-toggle="tab" >Parámetros</a></li>
+						<li role="presentation" class="tab_custom"><a href="#info_condicion" onclick="cargarInfoAdicional();" aria-controls="info_condicion" role="tab" data-toggle="tab" >Parametros</a></li>
 						<li role="presentation" class="tab_custom"><a href="#ref_pagador" onclick="cargarReferenciaPagador();" aria-controls="ref_pagador" role="tab" data-toggle="tab" >Referencia pagador</a></li>
-						<li role="presentation" class="tab_custom"><a href="#info_pdf" onclick="cargarInfoPdf();" aria-controls="info_pdf" role="tab" data-toggle="tab" >Oferta</a></li>
-						<li role="presentation" class="tab_custom"><a href="#formato_pagare" onclick="cargarFormatoPagare();" aria-controls="formato_pagare" role="tab" data-toggle="tab" >Pagaré</a></li>
-						<li role="presentation" class="tab_custom"><a href="#carta_instrucciones" onclick="cargarCartaInstrcciones();" aria-controls="carta_instrucciones" role="tab" data-toggle="tab">Carta de instrucciones</a></li>
+
+
+						<?
+						if ($appObj->tienePermisosAccion(array("oferta_terceros")))
+						{
+							//Opcion a ejecutar si tiene el permiso
+							echo "<li role='presentation' class='tab_custom'><a href='#info_pdf' onclick='cargarInfoPdf();' aria-controls='info_pdf' role='tab' data-toggle='tab' >Oferta</a></li>";
+						}
+
+						if ($appObj->tienePermisosAccion(array("pagare_terceros")))
+						{
+							//Opcion a ejecutar si tiene el permiso
+							echo "<li role='presentation' class='tab_custom'><a href='#formato_pagare' onclick='cargarFormatoPagare();' aria-controls='formato_pagare' role='tab' data-toggle='tab' >Pagare</a></li>";
+						}
+
+						if ($appObj->tienePermisosAccion(array("CartaInstrucciones_terceros")))
+						{
+							//Opcion a ejecutar si tiene el permiso
+							echo "<li role='presentation' class='tab_custom'><a href='#carta_instrucciones' onclick='cargarCartaInstrcciones();' aria-controls='carta_instrucciones' role='tab' data-toggle='tab'>Carta de instrucciones</a></li>";
+						}
+						?>
+
+						
+		
 					<?php
  						}
                     ?>
@@ -1066,7 +1133,7 @@ function descargarPDF() {
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModal">Enviar correo electrónico a:</h4>
+                <h4 class="modal-title" id="myModal">Enviar correo electrï¿½nico a:</h4>
             </div>
             <div class="modal-body" id="">
                 <form id="custom_data_to_email" name="custom_data_to_email">
@@ -1082,7 +1149,7 @@ function descargarPDF() {
                     <div class="col-md-2 labelCustom">E-mail:</div>
                     <div class="col-md-6">
                         <input type="textbox" id="correo_to_email" name="correo_to_email" value="" class="form-control required no-mayus">
-                        (Separe con ; para varios envíos)
+                        (Separe con ; para varios envï¿½os)
                     </div>
                 </div>
                 <div class="row" style="height:10px;">&nbsp;</div>

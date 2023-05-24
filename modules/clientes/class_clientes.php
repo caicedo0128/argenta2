@@ -999,7 +999,11 @@ class clientes extends ADOdb_Active_Record{
 
         //CREAR OPCIONES DE ENCABEZADO EN EL DATA GRID
         $dataGrid->optionsHeader=true;
-        $dataGrid->addOptionsHeader("Agregar","javascript:editReferenciaPagador(0,'clientes','ReferenciaPagador')");
+        if ($appObj->tienePermisosAccion(array("referenciaPagador_agregar_terceros")))
+				{
+					//Opcion a ejecutar si tiene el permiso
+                    $dataGrid->addOptionsHeader("Agregar","javascript:editReferenciaPagador(0,'clientes','ReferenciaPagador')");
+				}
 
         //CREAR OPCIONES DE PIE EN EL DATA GRID
         $dataGrid->optionsFooter=false;
@@ -1016,7 +1020,12 @@ class clientes extends ADOdb_Active_Record{
         $arrVarGet2 = Array("id_ref_pagador"=>"ID_REF_PAGADOR","mod"=>"clientes","action"=>"deleteReferenciaPagador");
 
         $dataGrid->addColLink("Editar","<center><a href=\"javascript:{function};\"><img src='./images/editar.png' title='Editar Cliente' alt='Editar Referncia Pagador' border='0'/></a></center>","editReferenciaPagador",$arrVarGet1,"functionjs","left");
-        $dataGrid->addColLink("Eliminar","<center><a href=\"javascript:{function};\"><img src='./images/eliminar.png' title='Eliminar Cliente' alt='Eliminar Referncia Pagador' border='0'/></a></center>","deleteReferenciaPagador",$arrVarGet2,"functionjs","left");
+
+        if ($appObj->tienePermisosAccion(array("referenciaPagador_eliminar_terceros")))
+        {
+            //Opcion a ejecutar si tiene el permiso
+            $dataGrid->addColLink("Eliminar","<center><a href=\"javascript:{function};\"><img src='./images/eliminar.png' title='Eliminar Cliente' alt='Eliminar Referncia Pagador' border='0'/></a></center>","deleteReferenciaPagador",$arrVarGet2,"functionjs","left");
+        }
 
         //CREAR LA PAGINACION
         $dataGrid->paginadorHeader = false;
