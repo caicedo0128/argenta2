@@ -15,7 +15,7 @@ function saveFactura(){
 
     if ($("#datosFactura").valid()){
 
-        showLoading("Enviando información. Espere por favor...");
+        showLoading("Enviando informaciï¿½n. Espere por favor...");
         var dataForm = new FormData(document.getElementById("datosFactura"));
         var strUrl = "admindex.php";
         $.ajax({
@@ -361,7 +361,7 @@ function leerArchivoXML(){
 </style>
 <div class="panel panel-primary">
     <div class="panel-body">
-        Registro de información de factura
+        Registro de informacion de factura
         <div class="cerrar_form" onclick="cargarFacturas();" title="Regresar"><i class="fa fa-reply fa-lg"></i></div>
         <hr />
         <form id="datosFactura" method="post" name="datosFactura" action="admindex.php" enctype="multipart/form-data">
@@ -387,7 +387,7 @@ function leerArchivoXML(){
                 </div>
 				<div class="col-md-2 labelCustom">
 					Plazo pagador:
-                	<div class="label label-success label-custom" style="">30-<?=$plazoMaximo?> días</div>
+                	<div class="label label-success label-custom" style="">30-<?=$plazoMaximo?> dï¿½as</div>
                 </div>        
 				<div class="col-md-4 labelCustom">
 					Archivo XML:
@@ -421,7 +421,7 @@ function leerArchivoXML(){
 					</div>
                 </div>
                 <div class="col-md-2 labelCustom">
-					Identificación emisor:
+					Identificaciï¿½n emisor:
 					<div class="">
 					<?php
 						$c_textbox = new Textbox;
@@ -439,7 +439,7 @@ function leerArchivoXML(){
 					</div>
                 </div>
                 <div class="col-md-2 labelCustom">
-					Identificación pagador:
+					Identificaciï¿½n pagador:
 					<div class="">
 					<?php
 						$c_textbox = new Textbox;
@@ -451,7 +451,7 @@ function leerArchivoXML(){
             <div class="row" style="height:10px;">&nbsp;</div>
             <div class="row">
                 <div class="col-md-2 labelCustom">
-					Fecha emisión:
+					Fecha emisiï¿½n:
 					<div class="">
 					<?php
 						$c_textbox = new Textbox;
@@ -507,7 +507,7 @@ function leerArchivoXML(){
                 	{
                 ?>
 						<div class="col-md-2 labelCustom">
-							Aplica otros operación:
+							Aplica otros operaciï¿½n:
 							<div id="divRadioaplica_otros" class="radioValidate">
 							<?php
 								$c_radio = new Radio;
@@ -596,7 +596,7 @@ function leerArchivoXML(){
                 </div>
             </div>
             <div class="row" style="height:10px;">&nbsp;</div>
-            <b>Liquidación factura:</b>
+            <b>Liquidaciï¿½n factura:</b>
             <hr/>
             <input type="hidden" name="valor_futuro" id="valor_futuro" value="<?=$factura->valor_futuro?>">
             <input type="hidden" name="descuento_total" id="descuento_total" value="<?=$factura->descuento_total?>">
@@ -614,8 +614,8 @@ function leerArchivoXML(){
 						<tr>
 							<td><b>Valor futuro:</b></td>
 							<td><b>Descuento total:</b></td>
-							<td><b>Interés corriente:</b></td>
-							<td><b>Gestión de referenciación:</b></td>
+							<td><b>Interï¿½s corriente:</b></td>
+							<td><b>Gestiï¿½n de referenciaciï¿½n:</b></td>
 						</tr>
 						<tr>
 							<td>
@@ -676,8 +676,8 @@ function leerArchivoXML(){
 						<tr>
 							<td><b>Valor futuro:</b></td>
 							<td><b>Descuento total:</b></td>
-							<td><b>Interés corriente:</b></td>
-							<td><b>Gestión de referenciación:</b></td>
+							<td><b>Interï¿½s corriente:</b></td>
+							<td><b>Gestiï¿½n de referenciaciï¿½n:</b></td>
 							<td><b>Giro antes GMF:</b></td>
 							<td><b>GMF:</b></td>
 							<td><b>Valor giro final:</b></td>

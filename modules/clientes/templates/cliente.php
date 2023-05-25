@@ -566,7 +566,7 @@ function verificar(tipoVerificacion){
 		success: function (response) {
 			loader();
 			var dialog = bootbox.dialog({
-				title: "Registrar verificaci�n",
+				title: "Registrar verificacion",
 				message: response
 			});
 			$(".bootbox").show().addClass("show");
@@ -642,7 +642,7 @@ function descargarPDF() {
         			if ($verificacionSagrilaft->fields["valor_verificacion"] == 2)
         				$classSagrilaft = "warning";
         		}
-        		echo "<span class='label label-".$classSagrilaft." text-white' style='padding:5px;font-size:12px;cursor:pointer;' onclick='verificar(1)' title='Verificaci�n listas SAGRILAFT'>SAGRILAFT</span>&nbsp;";
+        		echo "<span class='label label-".$classSagrilaft." text-white' style='padding:5px;font-size:12px;cursor:pointer;' onclick='verificar(1)' title='Verificacion listas SAGRILAFT'>SAGRILAFT</span>&nbsp;";
 
         		$classCliente = "success";
         		if ($verificacionCliente->_numOfRows == 0)
@@ -651,7 +651,7 @@ function descargarPDF() {
         			if ($verificacionCliente->fields["valor_verificacion"] == 2)
         				$classCliente = "warning";
         		}
-        		echo "<span class='label label-".$classCliente." text-white' style='padding:5px;font-size:12px;cursor:pointer;' onclick='verificar(2)' title='Verificaci�n conocimiento cliente'>C. CLIENTE</span>&nbsp;";
+        		echo "<span class='label label-".$classCliente." text-white' style='padding:5px;font-size:12px;cursor:pointer;' onclick='verificar(2)' title='Verificacion conocimiento cliente'>C. CLIENTE</span>&nbsp;";
 
         		$classOperacion = "success";
         		if ($verificacionOperacion->_numOfRows == 0)
@@ -660,8 +660,8 @@ function descargarPDF() {
         			if ($verificacionOperacion->fields["valor_verificacion"] == 2)
         				$classOperacion = "warning";
         		}
-        		echo "<span class='label label-".$classOperacion." text-white' style='padding:5px;font-size:12px;cursor:pointer;' onclick='verificar(3)' title='Verificaci�n conocimiento operaci�n'>C. OPERACION</span>&nbsp;";
-        		echo "<span class='label label-info text-white' style='padding:5px;font-size:12px;'>Ultima fecha operaci�n: ".($ultimaFecha != ""?$ultimaFecha:"No registra")."</span>&nbsp;";
+        		echo "<span class='label label-".$classOperacion." text-white' style='padding:5px;font-size:12px;cursor:pointer;' onclick='verificar(3)' title='Verificacion conocimiento operacion'>C. OPERACION</span>&nbsp;";
+        		echo "<span class='label label-info text-white' style='padding:5px;font-size:12px;'>Ultima fecha operacio	n: ".($ultimaFecha != ""?$ultimaFecha:"No registra")."</span>&nbsp;";
         	}
         ?>
         <?php

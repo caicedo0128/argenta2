@@ -24,7 +24,7 @@ function deleteDesembolso(idDesembolso, idOperacion) {
             data:dataForm,
             success: function (response) {
                 closeNotify();
-                showSuccess("Transacción exitosa. Espere por favor...");
+                showSuccess("Transacciï¿½n exitosa. Espere por favor...");
                 cargarDesembolsos();
             }
     });
@@ -36,7 +36,7 @@ function deleteDesembolso(idDesembolso, idOperacion) {
 ?>
 <div class="row-fluid">
     <div class="col-md-12 bg-primary-custom">
-        <h4>Información de desembolsos</h4>
+        <h4>Informacion de desembolsos</h4>
     </div>
     <div id="content_desembolsos" class="" style="clear:both;padding-top:10px;">
             <div style="height: 40px;" class="row-fluid">
@@ -44,7 +44,14 @@ function deleteDesembolso(idDesembolso, idOperacion) {
                     <?php
                         if (($operacion->estado == 3 || $operacion->estado == 1 || $operacion->estado == 6) && $_SESSION["profile_text"]!="Cliente"){
                     ?>
-                        <a class="btn btn-primary btn-sm" href="javascript:editDesembolso(0,<?=$idOperacion?>)"><i class="fa fa-plus-square fa-lg"></i> Agregar</a>
+                        <?
+                            if ($appObj->tienePermisosAccion(array("desembolso_agregar_terceros")))
+        					{
+                                //Opcion a ejecutar si tiene el permiso
+                               echo "<a class='btn btn-primary btn-sm' href='javascript:editDesembolso(0,<?=$idOperacion?>)'><i class='fa fa-plus-square fa-lg'></i> Agregar</a>";
+        					}
+                        ?>
+                    
                     <?php
                         }
                     ?>
@@ -75,11 +82,21 @@ function deleteDesembolso(idDesembolso, idOperacion) {
                             <td align="center">
                                 <?php
                                 	 if ($_SESSION["profile_text"] != "Cliente")
-                                     	echo "<a href=\"javascript:editDesembolso(".$idDesembolso.",".$idOperacion.");\"><img border=\"0\" alt=\"Editar desembolso\" title=\"Editar desembolso\" src=\"./images/editar.png\"></a>";
+                                        if ($appObj->tienePermisosAccion(array("desembolso_editar_terceros")))
+                                            {
+                                                //Opcion a ejecutar si tiene el permiso
+                                            echo "<a href=\"javascript:editDesembolso(".$idDesembolso.",".$idOperacion.");\"><img border=\"0\" alt=\"Editar desembolso\" title=\"Editar desembolso\" src=\"./images/editar.png\"></a>";
+                                            }
+
                                 ?>
                                 <?php
                                     if (($operacion->estado == 3 || $operacion->estado == 6) && $_SESSION["profile_text"] != "Cliente")
+                                    
+                                    if ($appObj->tienePermisosAccion(array("desembolso_eliminar_terceros")))
+                                    {
+                                        //Opcion a ejecutar si tiene el permiso
                                         echo "<a href=\"javascript:deleteDesembolso(".$idDesembolso.",".$idOperacion.");\"><img border=\"0\" alt=\"Eliminar desembolso\" title=\"Eliminar desembolso\" src=\"./images/eliminar.png\"></a>";
+                                    }
                                     else
                                         echo "N/D";
                                 ?>
@@ -103,7 +120,7 @@ function deleteDesembolso(idDesembolso, idOperacion) {
 									if ($rsDesembolsos->fields["archivo_desembolso"] != "")
 										echo "<a href='".$this->rutaArchivosDesembolsos."/".$rsDesembolsos->fields["archivo_desembolso"]."' target='_blank' title='Ver soporte'>Ver soporte</a>";
 									else
-										echo "No disponible aún";
+										echo "No disponible aï¿½n";
 				        		?>
 
                             </td>

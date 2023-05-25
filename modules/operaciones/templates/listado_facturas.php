@@ -14,7 +14,7 @@ function editFactura(idFactura) {
 function deleteFactura(idFactura) {
 
 		bootbox.confirm({
-			title: "Confirmación",
+			title: "Confirmaciï¿½n",
 			message: "Usted va a eliminar la factura. El proceso no se podra deshacer.<br/><br/>Realmente desea continuar?",
 			closeButton: true,
 			buttons: {
@@ -47,7 +47,7 @@ function deleteFactura(idFactura) {
 							data:dataForm,
 							success: function (response) {
 								closeNotify();
-								showSuccess("Transacción exitosa. Espere por favor...");
+								showSuccess("Transacciï¿½n exitosa. Espere por favor...");
 								cargarFacturas();
 							}
 					});
@@ -85,7 +85,7 @@ function procesarCargueFacturas(){
             processData: false,
             success: function (response) {
                 closeNotify();
-                showSuccess("Transacción exitosa. Espere por favor...");
+                showSuccess("Transacciï¿½n exitosa. Espere por favor...");
                 $("#modalToCargarFacturas").modal('hide');
                 window.setTimeout(function(){
                     cargarFacturas();
@@ -101,7 +101,7 @@ function procesarCargueFacturas(){
 
 function eliminarTodasFacturas(){
 
-        bootbox.confirm('Usted va a eliminar todas las facturas.<br/><br/>Tenga en cuenta que solo se borrarán las facturas sin reliquidación, Desea continuar?.', function (result) {
+        bootbox.confirm('Usted va a eliminar todas las facturas.<br/><br/>Tenga en cuenta que solo se borrarï¿½n las facturas sin reliquidaciï¿½n, Desea continuar?.', function (result) {
 
         if (result) {
 
@@ -119,7 +119,7 @@ function eliminarTodasFacturas(){
                 cache: false,
                 success: function (response) {
                     closeNotify();
-                    showSuccess("Transacción exitosa. Espere por favor...");
+                    showSuccess("Transacciï¿½n exitosa. Espere por favor...");
                     cargarFacturas();
                 }
             });
@@ -133,7 +133,7 @@ function descargarReporte(){
 
 function confirmarTransmitirFactura(tipo, idFactura){
 
-	showLoading("Enviando información. Espere por favor...");
+	showLoading("Enviando informaciï¿½n. Espere por favor...");
 
 	var strUrl = "admindex.php";
 	$.ajax({
@@ -161,7 +161,7 @@ function confirmarTransmitirFactura(tipo, idFactura){
 
 function verLogTransmision(tipoProceso, idFactura){
 
-	showLoading("Enviando información. Espere por favor...");
+	showLoading("Enviando informaciï¿½n. Espere por favor...");
 	var strUrl = "admindex.php";
 	$.ajax({
 		type: 'POST',
@@ -179,7 +179,7 @@ function verLogTransmision(tipoProceso, idFactura){
 		success: function (response) {
 			closeNotify();
 			var dialog = bootbox.dialog({
-				title: "Ver log transmisión",
+				title: "Ver log transmisiï¿½n",
 				message: response
 			});
 			$(".bootbox").show().addClass("show");
@@ -201,18 +201,27 @@ function verLogTransmision(tipoProceso, idFactura){
 
 <div class="row-fluid">
     <div class="col-md-12 bg-primary-custom">
-        <h4>Información de facturas</h4>
+        <h4>Informacin de facturas</h4>
     </div>
     <div id="content_facturas" class="" style="clear:both;padding-top:10px;">
             <div style="height: 40px;" class="row-fluid">
                 <div class="agregar_registro text-right">
+
+				<?
+					if ($appObj->tienePermisosAccion(array("facturas_agregar_operaciones")))
+					{
+					//Opcion a ejecutar si tiene el permiso
+					echo "<a class='btn btn-primary btn-sm' href='javascript:editFactura(0)'><i class='fa fa-plus-square fa-lg'></i> Agregar</a>";
+					}
+
+				?>
                     <?php
                         if ($operacion->estado == 3 || $operacion->estado == 4){
                     ?>
-                        <a class="btn btn-primary btn-sm" href="javascript:editFactura(0)"><i class="fa fa-plus-square fa-lg"></i> Agregar</a>
                         <a class="btn btn-warning btn-sm" href="javascript:cargueFacturas()"><i class="fa fa-plus-square fa-lg"></i> Cargar facturas</a>
                         <a class="btn btn-danger btn-sm" href="javascript:eliminarTodasFacturas()"><i class="fa fa-minus fa-lg"></i> Eliminar facturas</a>
                     <?php
+
                         }
                     ?>
                     <a class="btn btn-success btn-sm" href="admindex.php?Ajax=true&mod=operaciones&action=reporteLiquidacionFacturas&id_operacion=<?=$idOperacion?>" target="_blank"><i class="fa fa-download fa-lg"></i> Exportar</a>
@@ -223,15 +232,15 @@ function verLogTransmision(tipoProceso, idFactura){
                 <tr>
                     <th class="no-sort">Opciones</th>
                     <th>Fecha<br/>pago</th>
-                    <th>Fecha<br/>emisión</th>
+                    <th>Fecha<br/>emisiï¿½n</th>
                     <th>Fecha<br/>vencimiento</th>
                     <th>Nro.<br/>Factura</th>
                     <th>Valor<br/>neto</th>
                     <th>Valor<br/>bruto</th>
                     <th>Valor<br/>futuro</th>
                     <th>Descuento<br/>total</th>
-                    <th>Interés<br/>corriente</th>
-                    <th>Gestión<br/>referenciación</th>
+                    <th>Interï¿½s<br/>corriente</th>
+                    <th>Gestiï¿½n<br/>referenciaciï¿½n</th>
                     <th>Giro<br/>final</th>
 					<?php
 						if ($_SESSION["profile_text"]!="Cliente"){
@@ -259,7 +268,13 @@ function verLogTransmision(tipoProceso, idFactura){
                                     if (($operacion->estado == 4 && $_SESSION["profile_text"]=="Cliente") || $_SESSION["profile_text"]!="Cliente")
                                     {
                                 ?>
-		                            	<a href="javascript:editFactura(<?=$idOperacionFactura?>);"><img border="0" alt="Editar factura" title="Editar factura" src="./images/editar.png"></a>
+									<?
+									if ($appObj->tienePermisosAccion(array("facturas_editar_operaciones")))
+									{
+										//Opcion a ejecutar si tiene el permiso
+										echo "<a href='javascript:editFactura(<?=$idOperacionFactura?>);'><img border='0' alt='Editar factura' title='Editar factura' src='./images/editar.png'></a>";
+									}
+									?>
                                 <?php
                                     }
                                 ?>
@@ -268,7 +283,13 @@ function verLogTransmision(tipoProceso, idFactura){
                                     if (($idEstado == 1 && ($operacion->estado == 3 || $operacion->estado == 6) && $_SESSION["profile_text"]!="Cliente") || ($operacion->estado == 4 && $_SESSION["profile_text"]=="Cliente"))
                                     {
                                 ?>
-                                        <a href="javascript:deleteFactura(<?=$idOperacionFactura?>);"><img border="0" alt="Eliminar factura" title="Eliminar factura" src="./images/eliminar.png"></a>
+									<?
+									if ($appObj->tienePermisosAccion(array("facturas_eliminar_operaciones")))
+									{
+										//Opcion a ejecutar si tiene el permiso
+										echo "<a href='javascript:deleteFactura(<?=$idOperacionFactura?>);'><img border='0' alt='Eliminar factura' title='Eliminar factura' src='./images/eliminar.png'></a>";
+									}
+									?>
                                 <?php
                                     }
                                 ?>
@@ -305,7 +326,7 @@ function verLogTransmision(tipoProceso, idFactura){
 													$classIconM = ($rsFacturas->fields["id_estado_mandato"]==1?"text-success fa-check":"text-danger fa-times-circle-o")
 											?>										
 												<br/>
-												<a href="javascript:verLogTransmision(2,<?=$idOperacionFactura?>);" title="Ver log transmisión">
+												<a href="javascript:verLogTransmision(2,<?=$idOperacionFactura?>);" title="Ver log transmisiï¿½n">
 													<i class="fa <?=$classIconM?>" style="float:left;"></i> 
 												</a>
 											<?php
@@ -314,14 +335,14 @@ function verLogTransmision(tipoProceso, idFactura){
 										</div>									
 										<div style="float:left;">
 											<a href="javascript:confirmarTransmitirFactura(1,<?=$idOperacionFactura?>);" title="Inscribir factura">
-												<span class="rcorners rcorners_small label-info" title="Inscripción">I</span>                        
+												<span class="rcorners rcorners_small label-info" title="Inscripciï¿½n">I</span>                        
 											</a>
 											<?php
 												if ($rsFacturas->fields["id_estado_inscripcion"] != null ){
 													$classIconI = ($rsFacturas->fields["id_estado_inscripcion"]==1?"text-success fa-check":"text-danger fa-times-circle-o")
 											?>
 												<br/>
-												<a href="javascript:verLogTransmision(1,<?=$idOperacionFactura?>);" title="Ver log transmisión">
+												<a href="javascript:verLogTransmision(1,<?=$idOperacionFactura?>);" title="Ver log transmisiï¿½n">
 													<i class="fa <?=$classIconI?>" style="float:left;"></i> 
 												</a>									
 											<?php
@@ -337,7 +358,7 @@ function verLogTransmision(tipoProceso, idFactura){
 													$classIconE = ($rsFacturas->fields["id_estado_endoso"]==1?"text-success fa-check":"text-danger fa-times-circle-o")
 											?>											
 												<br/>
-												<a href="javascript:verLogTransmision(3,<?=$idOperacionFactura?>);" title="Ver log transmisión">
+												<a href="javascript:verLogTransmision(3,<?=$idOperacionFactura?>);" title="Ver log transmisiï¿½n">
 													<i class="fa <?=$classIconE?>" style="float:left;"></i> 
 												</a>																				
 											<?php
@@ -353,7 +374,7 @@ function verLogTransmision(tipoProceso, idFactura){
 													$classIconIP = ($rsFacturas->fields["id_estado_informe"]==1?"text-success fa-check":"text-danger fa-times-circle-o")
 											?>	
 												<br/>
-												<a href="javascript:verLogTransmision(4,<?=$idOperacionFactura?>);" title="Ver log transmisión">
+												<a href="javascript:verLogTransmision(4,<?=$idOperacionFactura?>);" title="Ver log transmisiï¿½n">
 													<i class="fa <?=$classIconIP?>" style="float:left;"></i> 
 												</a>																			
 											<?php
@@ -369,7 +390,7 @@ function verLogTransmision(tipoProceso, idFactura){
 													$classIconP = ($rsFacturas->fields["id_estado_pago"]==1?"text-success fa-check":"text-danger fa-times-circle-o")
 											?>											
 												<br/>
-												<a href="javascript:verLogTransmision(5,<?=$idOperacionFactura?>);" title="Ver log transmisión">
+												<a href="javascript:verLogTransmision(5,<?=$idOperacionFactura?>);" title="Ver log transmisiï¿½n">
 													<i class="fa <?=$classIconP?>" style="float:left;"></i> 
 												</a>																				
 											<?php

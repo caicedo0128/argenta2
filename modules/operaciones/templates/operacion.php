@@ -67,10 +67,10 @@ function actualizarOperacion(){
 
 function cerrarOperacion(){
 
-	bootbox.confirm('La operación se va a cerrar.<br/><br/>Desea continuar?.', function (result) {
+	bootbox.confirm('La operaciï¿½n se va a cerrar.<br/><br/>Desea continuar?.', function (result) {
 
 		if (result) {
-			showLoading("Cerrando operación. Espere por favor...");
+			showLoading("Cerrando operaciï¿½n. Espere por favor...");
 			var idOperacion = $("#id_operacion").val();
 			var dataForm = "Ajax=true&mod=operaciones&action=cerrarOperacion&idOperacion=" + idOperacion;
 			var strUrl = "admindex.php";
@@ -82,7 +82,7 @@ function cerrarOperacion(){
 					success: function (response) {
 						closeNotify();
 						if (response.Success) {
-							showSuccess("Transacción exitosa. Espere por favor...");
+							showSuccess("Transacciï¿½n exitosa. Espere por favor...");
 							editOperacion(response.IdOperacion);
 						}
 						else{
@@ -95,10 +95,10 @@ function cerrarOperacion(){
 }
 
 function abrirOperacion(){
-	bootbox.confirm('La operación se va a re-abrir.<br/><br/>Desea continuar?.', function (result) {
+	bootbox.confirm('La operaciï¿½n se va a re-abrir.<br/><br/>Desea continuar?.', function (result) {
 
 		if (result) {
-			showLoading("Abriendo operación. Espere por favor...");
+			showLoading("Abriendo operaciï¿½n. Espere por favor...");
 			var idOperacion = $("#id_operacion").val();
 			var dataForm = "Ajax=true&mod=operaciones&action=abrirOperacion&idOperacion=" + idOperacion;
 			var strUrl = "admindex.php";
@@ -110,7 +110,7 @@ function abrirOperacion(){
 					success: function (response) {
 						closeNotify();
 						if (response.Success) {
-							showSuccess("Transacción exitosa. Espere por favor...");
+							showSuccess("Transacciï¿½n exitosa. Espere por favor...");
 							editOperacion(response.IdOperacion);
 						}
 						else{
@@ -271,18 +271,18 @@ function traerCondiciones(tipo){
                         	var msjPagare = "";
                         	var classPagare = "";
 							if (response.DiasVigenciaPagare > 30){
-								msjPagare = "Pagaré vigente";
+								msjPagare = "Pagarï¿½ vigente";
 								classPagare = "label-success";
 							}
 							else if (response.DiasVigenciaPagare >= 1 && response.DiasVigenciaPagare <= 30){
-								msjPagare = "Pagaré próximo a vencer - " + response.DiasVigenciaPagare;
+								msjPagare = "Pagarï¿½ prï¿½ximo a vencer - " + response.DiasVigenciaPagare;
 								classPagare = "label-warning";
 							}
 							else if (response.DiasVigenciaPagare <= 0){
-								msjPagare = "Pagaré vencido - " + response.DiasVigenciaPagare;
+								msjPagare = "Pagarï¿½ vencido - " + response.DiasVigenciaPagare;
         						classPagare = "label-danger";
         						formReadonly("datosOperacion");
-        						showError("El pagaré está vencido. Por favor verifique.");
+        						showError("El pagarï¿½ estï¿½ vencido. Por favor verifique.");
 							}
 
                         	$("#text_pagare").text(msjPagare).addClass(classPagare).show();
@@ -299,20 +299,20 @@ function traerCondiciones(tipo){
 								classResFac = "label-success";
 							}
 							else if (response.DiasVigenciaResFac >= 1 && response.DiasVigenciaResFac <= 15){
-								msjResFac = "Res. fac. próxima a vencer - " + response.DiasVigenciaResFac;
+								msjResFac = "Res. fac. prï¿½xima a vencer - " + response.DiasVigenciaResFac;
 								classResFac = "label-warning";
 							}
 							else if (response.DiasVigenciaResFac <= 0 && response.DiasVigenciaResFac != -9999){
 								msjResFac = "Res. fac. vencida - " + response.DiasVigenciaResFac;
         						classResFac = "label-danger";
         						formReadonly("datosOperacion");
-        						showError("Las resolución de facturacióna está vencida. Por favor verifique.");
+        						showError("Las resoluciï¿½n de facturaciï¿½na estï¿½ vencida. Por favor verifique.");
 							}
 							else if (response.DiasVigenciaResFac <= -9999){
 								msjResFac = "Res. fac. sin cargar o aprobar";
 								classResFac = "label-danger";
 								formReadonly("datosOperacion");
-								showError("Las resolución de facturacióna no ha sido cargada o no está aprobada. Por favor verifique.");
+								showError("Las resoluciï¿½n de facturaciï¿½na no ha sido cargada o no estï¿½ aprobada. Por favor verifique.");
 							}
 
                         	$("#text_resfac").text(msjResFac).addClass(classResFac).show();
@@ -332,7 +332,7 @@ function actualizarOperacionVigente(){
 
 	if ($("#datosOperacion").valid()){
 
-		bootbox.confirm('La operación se va a procesar como VIGENTE.<br/><br/>El proceso no se podrá deshacer.<br/><br/>Desea continuar?.', function (result) {
+		bootbox.confirm('La operaciï¿½n se va a procesar como VIGENTE.<br/><br/>El proceso no se podrï¿½ deshacer.<br/><br/>Desea continuar?.', function (result) {
 
 			if (result) {
 
@@ -350,7 +350,7 @@ function actualizarOperacionVigente(){
 						success: function (response) {
 							closeNotify();
 							if (response.Success){
-								showSuccess("Transacción exitosa. Espere por favor...");
+								showSuccess("Transacciï¿½n exitosa. Espere por favor...");
 								editOperacion(response.IdOperacion);
 							}
 							else
@@ -368,7 +368,7 @@ function actualizarOperacionVigente(){
 function cambiarGMFManual(){
 
 	bootbox.prompt({
-		title: "Confirmación",
+		title: "Confirmaciï¿½n",
 		message: "Actualizar GMF manual.<br/><br/>Realmente desea continuar?<br/><br/>GMF manual:",
 		closeButton: false,
 		inputType: 'number',
@@ -391,11 +391,11 @@ function cambiarGMFManual(){
 				closeBootbox();
 				return;
 			} else if (result === '') {
-				showError('Debe ingresar un número inicial para completar el proceso');
+				showError('Debe ingresar un nï¿½mero inicial para completar el proceso');
 				return false;
 			}
 			else if (result){
-				showLoading("Enviando información. Espere por favor...");
+				showLoading("Enviando informaciï¿½n. Espere por favor...");
 				var strUrl = "admindex.php";
 				$.ajax({
 					type: 'POST',
@@ -413,7 +413,7 @@ function cambiarGMFManual(){
 					success: function (response) {
 						closeNotify();
 						closeBootbox();
-						showSuccess("Transacción exitosa. Espere por favor...");
+						showSuccess("Transacciï¿½n exitosa. Espere por favor...");
 						editOperacion(idOperacion);
 					}
 				});
@@ -427,7 +427,7 @@ function cambiarGMFManual(){
 </script>
 <div class="panel panel-primary">
     <div class="panel-body">
-        Registro de información de operación
+        Registro de informacion de operacion
 		<?php
         	if ($operacion->id_operacion != 0){
         		echo "<span class='label label-primary text-white' style='padding:5px;font-size:12px;'>ID: ".$operacion->id_operacion."</span>&nbsp;";
@@ -446,7 +446,7 @@ function cambiarGMFManual(){
                 	<div class="form-control" style="" disabled="disabled"><?=($operacion->fecha != ""?$operacion->fecha:date("Y-m-d"))?></div>
                 </div>
                 <div class="col-md-2 labelCustom">
-                	Fecha operación:
+                	Fecha operaciï¿½n:
 					<div class="">
 					<?php
 						$c_textbox = new Textbox;
@@ -471,7 +471,7 @@ function cambiarGMFManual(){
 					?>
 					Obtener condiciones: <a href="javascript:;" onclick="traerCondiciones('emisor');"><i class="fa fa-reply fa-lg"></i></a>
 					<div>
-						<span id="text_pagare" class="label " style="display:none;padding:2px;width:37%;float:left;margin-top:1px;">Pagaré</span>
+						<span id="text_pagare" class="label " style="display:none;padding:2px;width:37%;float:left;margin-top:1px;">Pagarï¿½</span>
 						<span id="text_resfac" class="label "style="display:none;padding:2px;width:43%;float:left;margin-left:1px;margin-top:1px;">Res. Fac.</span>
 						<span id="refrescar" onclick="editOperacion(0);" class="label label-info" style="display:none;padding:2px;width:15%;float:left;margin-left:1px;margin-top:1px;cursor:pointer;">Recargar</span>
 					</div>
@@ -498,17 +498,17 @@ function cambiarGMFManual(){
             </div>
             <div class="row" style="height:10px;">&nbsp;</div>
             <fieldset class="well">
-            	<legend>Opciones para gestión del proceso:</legend>
+            	<legend>Opciones para gestion del proceso:</legend>
             	<input type="hidden" name="fecha_pago_operacion" id="fecha_pago_operacion" value="">
             	<input type="hidden" name="fecha_vencimiento" id="fecha_vencimiento" value="">
             	<input type="hidden" name="descripcion_otros" id="descripcion_otros" value="">
                 <div class="row">
 					<div class="col-md-2 labelCustom">
-						Tipo operación:
+						Tipo operacion:
 						<div id="divRadiotipo_operacion" class="radioValidate">
 						<?php
 							$c_radio = new Radio;
-							$arrTipo = array("1"=>"Real","2"=>"Simulación");
+							$arrTipo = array("1"=>"Real","2"=>"Simulaciï¿½n");
 							$c_radio->Radio("tipo_operacion","tipo_operacion",$arrTipo,"", 1, $operacion->tipo_operacion, "", 0, "customValidateRadio('tipo_operacion');");
 							while($tmp_html = $c_radio->next_entry()) {
 								echo $tmp_html->getCode()."&nbsp;".$tmp_html->getLabel()."&nbsp;&nbsp;";
@@ -524,7 +524,7 @@ function cambiarGMFManual(){
 
 								$eventoFacturas = "";
 								if ($rsFacturas->_numOfRows>0)
-									$eventoFacturas = "showError('<b>IMPORTANTE:</b> Este cambio requiere que ingrese manualmente a cada una de las facturas y actualice la información.<br/>Verifique que haya guardado el cambio en la operación',5000);";
+									$eventoFacturas = "showError('<b>IMPORTANTE:</b> Este cambio requiere que ingrese manualmente a cada una de las facturas y actualice la informaciï¿½n.<br/>Verifique que haya guardado el cambio en la operaciï¿½n',5000);";
 
 								$c_radio = new Radio;
 								$arrSiNo = array("1"=>"Si","2"=>"No");
@@ -587,7 +587,7 @@ function cambiarGMFManual(){
 						</div>
                     </div>
                     <div class="col-md-2 labelCustom">
-						Comisión:
+						Comisiï¿½n:
 						<div class="">
 						<?php
 							$c_textbox = new Textbox;
@@ -596,7 +596,7 @@ function cambiarGMFManual(){
 						</div>
                     </div>
                     <div class="col-md-2 labelCustom">
-						Fecha pago comisión:
+						Fecha pago comisiï¿½n:
 						<div class="">
 						<?php
 							$c_textbox = new Textbox;
@@ -617,7 +617,7 @@ function cambiarGMFManual(){
 				<div class="row" style="height:10px;">&nbsp;</div>
                 <div class="row">
                     <div class="col-md-6 labelCustom">
-						Observaciones comisión:
+						Observaciones comisiï¿½n:
 						<div class="">
 						<?php
 							$c_textbox = new Textbox;
@@ -646,32 +646,40 @@ function cambiarGMFManual(){
             <center>
 
                 <?php
-                    if ($operacion->estado == 3 || $operacion->estado == 6 || $idOperacion == 0){
+                    //if ($operacion->estado == 3 || $operacion->estado == 6 || $idOperacion == 0){
                 ?>
                     <input type="button" value="Guardar" class="btn btn-primary datosOperacion_btnSave" onclick="saveOperacion();">
                 <?php
-                    }
+                    //}
                 ?>
                 <?php
-                    if ($operacion->estado == 3 || $operacion->estado == 6){
+                   // if ($operacion->estado == 3 || $operacion->estado == 6){
+					if ($appObj->tienePermisosAccion(array("pasarVigente_operacion")))
+        					{
+							//Opcion a ejecutar si tiene el permiso
+							echo "<input id='btn_operacion_vigente' type='button' value='Pasar a vigente' class='btn btn-warning datosActualizarOperacionVigente_btnSave' onclick='actualizarOperacionVigente();'>";
+        					}
                 ?>
-                    <input id="btn_operacion_vigente" type="button" value="Pasar a vigente" class="btn btn-warning datosActualizarOperacionVigente_btnSave" onclick="actualizarOperacionVigente();">
                 <?php
-                    }
+                   // }
                 ?>
                 <?php
-                    if ($operacion->estado == 1){
+                   // if ($operacion->estado == 1){
+					if ($appObj->tienePermisosAccion(array("actualizar_operaciones")))
+        					{
+							//Opcion a ejecutar si tiene el permiso
+							echo "<input id='btn_actualizar_operacion' type='button' value='Actualizar operacion' class='btn btn-warning datosActualizarOperacion_btnSave' onclick='actualizarOperacion();'>";
+							echo "<input id='btn_cerrar_operacion' type='button' value='Cerrar operacion' class='btn btn-danger datosCerrarOperacion_btnSave' onclick='cerrarOperacion();'>";
+        					}
                 ?>
-                    <input id="btn_actualizar_operacion" type="button" value="Actualizar operación" class="btn btn-warning datosActualizarOperacion_btnSave" onclick="actualizarOperacion();">
-                    <input id="btn_cerrar_operacion" type="button" value="Cerrar operación" class="btn btn-danger datosCerrarOperacion_btnSave" onclick="cerrarOperacion();">
                 <?php
-                    }
+                    //}
                 ?>
 
                 <?php
                     if ($operacion->estado == 2){
                 ?>
-                    <input id="btn_abrir_operacion" type="button" value="Re-abrir operación" class="btn btn-success datosAbrirOperacion_btnSave" onclick="abrirOperacion();">
+                    <input id="btn_abrir_operacion" type="button" value="Re-abrir operaciï¿½n" class="btn btn-success datosAbrirOperacion_btnSave" onclick="abrirOperacion();">
                 <?php
                     }
                 ?>
@@ -690,7 +698,13 @@ function cambiarGMFManual(){
 					<!--li role="presentation" class="tab_custom"><a href="#reporte_inversionista" onclick="reporteInversionista();" aria-controls="reporte_inversionista" role="tab" data-toggle="tab">Inversionista</a></li-->
 					<li role="presentation" class="tab_custom"><a href="#reliquidaciones_operacion" onclick="cargarReliquidaciones();" aria-controls="reliquidaciones_operacion" role="tab" data-toggle="tab">Re-Liquidaciones</a></li>
 					<li role="presentation" class="tab_custom"><a href="#reportes" onclick="cargarReportes();" aria-controls="reportes" role="tab" data-toggle="tab">Reportes</a></li>
-					<li role="presentation" class="tab_custom"><a href="#seguimiento" onclick="cargarSeguimiento();" aria-controls="seguimiento" role="tab" data-toggle="tab">Seguimiento</a></li>
+					<?
+					if ($appObj->tienePermisosAccion(array("seguimiento_operaciones")))
+        					{
+							//Opcion a ejecutar si tiene el permiso
+							echo "<li role='presentation' class='tab_custom'><a href='#seguimiento' onclick='cargarSeguimiento();' aria-controls='seguimiento' role='tab' data-toggle='tab'>Seguimiento</a></li>";
+        					}
+					?>		
 				</ul>
 				<div class="tab-content">
 					<!--div role="tabpanel" class="tab-pane" id="inversionistas_operacion"></div-->

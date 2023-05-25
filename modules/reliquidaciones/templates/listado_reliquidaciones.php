@@ -24,7 +24,7 @@ function deleteReliquidacion(idReliquidacion) {
             data:dataForm,
             success: function (response) {
                 closeNotify();
-                showSuccess("Transacción exitosa. Espere por favor...");
+                showSuccess("Transacciï¿½n exitosa. Espere por favor...");
                 cargarReliquidaciones();
             }
     });
@@ -148,28 +148,31 @@ function descargarReporteReliquidacionFacturacion(idReliquidacion){
 ?>
 <div class="row-fluid">
     <div class="col-md-12 bg-primary-custom">
-        <h4>Información de reliquidaciones</h4>
+        <h4>Informacion de reliquidaciones</h4>
     </div>
     <div id="content_reliquidaciones" class="" style="clear:both;padding-top:10px;">
             <div style="height: 40px;" class="row-fluid">
                 <div class="agregar_registro text-right">
-                    <?php
-                        if ($operacion->estado == 1 && $_SESSION["profile_text"]!="Cliente"){
-                    ?>
-                        <a class="btn btn-primary btn-sm" href="javascript:editReliquidacion(0)"><i class="fa fa-plus-square fa-lg"></i> Agregar</a>
-                    <?php
-                        }
-                    ?>
+                    
+                <?
+                if ($appObj->tienePermisosAccion(array("rediquilacion_agregar_terceros")))
+                    {
+                    //Opcion a ejecutar si tiene el permiso
+                  echo "<a class='btn btn-primary btn-sm' href='javascript:editReliquidacion(0)'><i class='fa fa-plus-square fa-lg'></i> Agregar</a>";
+                    }
+                ?>
+    
+                    
                 </div>
             </div>
             <table id="listReliquidaciones" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" style="width:100%;">
             <thead>
                 <tr>
                     <th>Opciones</th>
-                    <th>Cod. reliquidación</th>
+                    <th>Cod. reliquidaciï¿½n</th>
                     <th>Fecha</th>
                     <th>Nro Factura</th>
-                    <th>Tipo reliquidación</th>
+                    <th>Tipo reliquidaciï¿½n</th>
                     <!--th>Remanentes enviados</th-->
                     <th>Estado</th>
                     <th>Trazabilidad</th>
@@ -189,12 +192,20 @@ function descargarReporteReliquidacionFacturacion(idReliquidacion){
 
                                 <?php
                                     if ($operacion->estado == 1 && $_SESSION["profile_text"]!="Cliente" || $_SESSION["profile_text"]=="Administrador")
-                                        echo "<a href=\"javascript:editReliquidacion(".$idReliquidacion.");\"><img border=\"0\" alt=\"Editar re-liquidación\" title=\"Editar re-liquidación\" src=\"./images/editar.png\"></a>";
+                                        if ($appObj->tienePermisosAccion(array("rediquilacion_editar_terceros")))
+                                        {
+                                        //Opcion a ejecutar si tiene el permiso
+                                        echo "<a href=\"javascript:editReliquidacion(".$idReliquidacion.");\"><img border=\"0\" alt=\"Editar re-liquidaciï¿½n\" title=\"Editar re-liquidaciï¿½n\" src=\"./images/editar.png\"></a>";
+                                        }
                                 ?>
 
                                 <?php
                                     if ($operacion->estado == 1 && $_SESSION["profile_text"]!="Cliente")
-                                        echo "<a href=\"javascript:deleteReliquidacion(".$idReliquidacion.");\"><img border=\"0\" alt=\"Eliminar re-liquidación\" title=\"Eliminar re-liquidación\" src=\"./images/eliminar.png\"></a>";
+                                        if ($appObj->tienePermisosAccion(array("rediquilacion_eliminar_terceros")))
+                                        {
+                                        //Opcion a ejecutar si tiene el permiso
+                                        echo "<a href=\"javascript:deleteReliquidacion(".$idReliquidacion.");\"><img border=\"0\" alt=\"Eliminar re-liquidaciï¿½n\" title=\"Eliminar re-liquidaciï¿½n\" src=\"./images/eliminar.png\"></a>";
+                                        }
                                     else
                                         echo "N/D";
                                 ?>
