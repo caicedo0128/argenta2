@@ -265,8 +265,8 @@ function verLogTransmision(tipoProceso, idFactura){
                         <tr>
                             <td align="center">
 								<?php
-                                    if (($operacion->estado == 4 && $_SESSION["profile_text"]=="Cliente") || $_SESSION["profile_text"]!="Cliente")
-                                    {
+                                    //if (($operacion->estado == 4 && $_SESSION["profile_text"]=="Cliente") || $_SESSION["profile_text"]!="Cliente")
+                                    //{
                                 ?>
 									<?
 									if ($appObj->tienePermisosAccion(array("facturas_editar_operaciones")))
@@ -276,22 +276,23 @@ function verLogTransmision(tipoProceso, idFactura){
 									}
 									?>
                                 <?php
-                                    }
+                                   // }
                                 ?>
 
 								<?php
-                                    if (($idEstado == 1 && ($operacion->estado == 3 || $operacion->estado == 6) && $_SESSION["profile_text"]!="Cliente") || ($operacion->estado == 4 && $_SESSION["profile_text"]=="Cliente"))
-                                    {
+                                   // if (($idEstado == 1 && ($operacion->estado == 3 || $operacion->estado == 6) && $_SESSION["profile_text"]!="Cliente") || ($operacion->estado == 4 && $_SESSION["profile_text"]=="Cliente"))
+                                    //{
                                 ?>
 									<?
 									if ($appObj->tienePermisosAccion(array("facturas_eliminar_operaciones")))
 									{
 										//Opcion a ejecutar si tiene el permiso
 										echo "<a href='javascript:deleteFactura(<?=$idOperacionFactura?>);'><img border='0' alt='Eliminar factura' title='Eliminar factura' src='./images/eliminar.png'></a>";
+									
 									}
 									?>
                                 <?php
-                                    }
+                                    //}
                                 ?>
                                 
                             	<?php
@@ -374,7 +375,7 @@ function verLogTransmision(tipoProceso, idFactura){
 													$classIconIP = ($rsFacturas->fields["id_estado_informe"]==1?"text-success fa-check":"text-danger fa-times-circle-o")
 											?>	
 												<br/>
-												<a href="javascript:verLogTransmision(4,<?=$idOperacionFactura?>);" title="Ver log transmisi�n">
+												<a href="javascript:verLogTransmision(4,<?=$idOperacionFactura?>);" title="Ver log transmision">
 													<i class="fa <?=$classIconIP?>" style="float:left;"></i> 
 												</a>																			
 											<?php

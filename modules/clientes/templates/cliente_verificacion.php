@@ -27,7 +27,7 @@ function saveVerificacion(){
 			success: function (response) {
 				closeNotify();
 				if (response.Success){
-					showSuccess("Transacción exitosa. Espere por favor...");
+					showSuccess("Transacciï¿½n exitosa. Espere por favor...");
 					closeBootbox();
 					window.setTimeout(function(){
 						loader();
@@ -68,15 +68,15 @@ function saveVerificacion(){
 					else if ($tipoVerificacion == 2)
 						$descripcion = "conocimiento de cliente";
 					else if ($tipoVerificacion == 3)
-						$descripcion = "conocimiento de operación";	
+						$descripcion = "conocimiento de operaciï¿½n";	
 				?>
-				<span class="label label-info">Verificación de <?=$descripcion?></span>
+				<span class="label label-info">Verificacion de <?=$descripcion?></span>
 				</div>				 	
 			</div>        
 			<div class="row" style="height:10px;">&nbsp;</div>    			
 			<div class="row">
 				<div class="col-md-4">
-					Fecha verificación:
+					Fecha verificaciï¿½n:
 					<div class="form-control"><?=($verificacion->fecha_verificacion != "" ?$verificacion->fecha_verificacion:date("Y-m-d"))?></div>
 				</div>		
 				<div class="col-md-4">
@@ -133,7 +133,27 @@ function saveVerificacion(){
             </form>
             <div class="row" style="height:10px;">&nbsp;</div>
             <center>
-                <input type="button" value="Guardar" class="btn btn-primary datos_tarea_btnSave" onclick="saveVerificacion();">
+				<?
+					if ($appObj->tienePermisosAccion(array("guardar_sagrilaft_terceros")))
+					{
+						//Opcion a ejecutar si tiene el permiso
+						echo "<input type='button' value='Guardar' class='btn btn-primary datos_tarea_btnSave' onclick='saveVerificacion();'>";
+					}
+
+					if ($appObj->tienePermisosAccion(array("guardar_Conocimiento_terceros")))
+					{
+						//Opcion a ejecutar si tiene el permiso
+						echo "<input type='button' value='Guardar' class='btn btn-primary datos_tarea_btnSave' onclick='saveVerificacion();'>";
+					}
+
+					if ($appObj->tienePermisosAccion(array("guardar_ConocimientoOperacion_terceros")))
+					{
+						//Opcion a ejecutar si tiene el permiso
+						echo "<input type='button' value='Guardar' class='btn btn-primary datos_tarea_btnSave' onclick='saveVerificacion();'>";
+					}
+					
+
+				?>
             </center>            
     </div>        
 </div>

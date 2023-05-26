@@ -17,8 +17,8 @@ function editOperacion(idOperacion) {
 function deleteOperacion(idOperacion) {
 
 	bootbox.confirm({
-		title: "Confirmación",
-		message: "Usted va a eliminar la operación. El proceso no se podra deshacer.<br/><br/>Realmente desea continuar?",
+		title: "Confirmaciï¿½n",
+		message: "Usted va a eliminar la operaciï¿½n. El proceso no se podra deshacer.<br/><br/>Realmente desea continuar?",
 		closeButton: true,
 		buttons: {
 			confirm: {
@@ -50,7 +50,7 @@ function deleteOperacion(idOperacion) {
 						data:dataForm,
 						success: function (response) {
 							closeNotify();
-							showSuccess("Transacción exitosa. Espere por favor...");
+							showSuccess("Transacciï¿½n exitosa. Espere por favor...");
 							cargarOperaciones();
 						}
 				});
@@ -80,7 +80,13 @@ function cargarOperaciones() {
     <div id="content_operaciones" class="" style="clear:both;padding-top:15px;">
             <div style="height: 40px;" class="row-fluid">
                 <div class="agregar_registro text-right">
-                    <a class="btn btn-primary btn-sm" href="javascript:editOperacion(0)"><i class="fa fa-plus-square fa-lg"></i> Agregar</a>
+                    <?
+                        if ($appObj->tienePermisosAccion(array("agregar_operaciones")))
+						{
+							//Opcion a ejecutar si tiene el permiso
+                           echo "<a class='btn btn-primary btn-sm' href='javascript:editOperacion(0)'><i class='fa fa-plus-square fa-lg'></i> Agregar</a>";
+						}
+                    ?>
                     <a href="javascript:;" title="Exportar" onclick="exportarReporteInversiones();" class="btn btn-success btn-sm"><i class="fa fa-download fa-lg"></i>Exportar</a>
                 </div>
             </div>
@@ -89,9 +95,9 @@ function cargarOperaciones() {
                 <tr>
                     <th>Editar</th>
                     <th>Eliminar</th>
-                    <th>Id. Operación</th>
+                    <th>Id. Operaciï¿½n</th>
                     <th>Fecha registro</th>
-                    <th>Fecha operación</th>
+                    <th>Fecha operaciï¿½n</th>
                     <th>Factura de venta</th>
                     <th>Emisor</th>
                     <th>Pagador</th>
@@ -113,13 +119,13 @@ function cargarOperaciones() {
                         $arrFacturasReliquidacion = $factura->getArrFacturasPorOperacionReliquidacion($idOperacion,$fechaOperacion);
                 ?>
                         <tr>
-                            <td align="center"><a href="javascript:editOperacion(<?=$idOperacion?>);"><img border="0" alt="Editar operación" title="Editar operación" src="./images/editar.png"></a></td>
+                            <td align="center"><a href="javascript:editOperacion(<?=$idOperacion?>);"><img border="0" alt="Editar operaciï¿½n" title="Editar operaciï¿½n" src="./images/editar.png"></a></td>
                             <td align="center">
                                 <?php
                                     //SI ESTA CREADA
                                     if ($idEstado == 3 || $idEstado == 4){
                                 ?>
-                                    <a href="javascript:deleteOperacion(<?=$idOperacion?>);"><img border="0" alt="Eliminar operación" title="Eliminar operación" src="./images/eliminar.png"></a>
+                                    <a href="javascript:deleteOperacion(<?=$idOperacion?>);"><img border="0" alt="Eliminar operaciï¿½n" title="Eliminar operaciï¿½n" src="./images/eliminar.png"></a>
                                 <?php
                                     }
                                     else{
@@ -161,7 +167,7 @@ function cargarOperaciones() {
 
                             		echo $this->arrEstados[$rsOperaciones->fields["estado"]];
                             		if ($rsOperaciones->fields["tipo_operacion"] == 2)
-                            			echo "<br/>Simulación";
+                            			echo "<br/>Simulaciï¿½n";
 
                             	?>
 

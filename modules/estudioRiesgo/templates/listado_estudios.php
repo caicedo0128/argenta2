@@ -29,7 +29,7 @@ function imprimirEstudio(idEstudio) {
 function deleteEstudio(idEstudio) {
 
 	bootbox.confirm({
-		title: "Confirmación",
+		title: "Confirmaciï¿½n",
 		message: "Usted va a eliminar el estudio de riesgo. El proceso no se podra deshacer.<br/><br/>Realmente desea continuar?",
 		closeButton: true,
 		buttons: {
@@ -51,7 +51,7 @@ function deleteEstudio(idEstudio) {
 			}
 			else if (result){
 
-				showLoading("Enviando informaciÓn. Espere por favor...");
+				showLoading("Enviando informaciï¿½n. Espere por favor...");
 
 				var strUrl = "admindex.php";
 				var dataForm = "Ajax=true&mod=estudioRiesgo&action=eliminarEstudio&id_estudio=" + idEstudio
@@ -62,7 +62,7 @@ function deleteEstudio(idEstudio) {
 						data:dataForm,
 						success: function (response) {
 							closeNotify();
-							showSuccess("Transacción exitosa. Espere por favor...");
+							showSuccess("Transacciï¿½n exitosa. Espere por favor...");
 							cargarEstudios();
 						}
 				});
@@ -83,22 +83,28 @@ function cargarEstudios() {
 
 <div class="row-fluid">
     <div class="col-md-12 bg-success-custom">
-        <h4>Información de estudios de riesgo</h4>
+        <h4>Informaciï¿½n de estudios de riesgo</h4>
     </div>
     <br/><br/><br/>
     <div class="container-fluid row-fluid">
-        <div class="col-md-1 labelCustom"><strong>Razón social</strong></div>
+        <div class="col-md-1 labelCustom"><strong>Razï¿½n social</strong></div>
         <div class="col-md-3 btn btn-warning"><?=$cliente->razon_social?></div>
         <div class="col-md-1 labelCustom"><strong>Representante legal</strong></div>
         <div class="col-md-3 btn btn-warning"><?=$cliente->representante_legal?></div>
-        <div class="col-md-1 labelCustom"><strong>Identificación</strong></div>
+        <div class="col-md-1 labelCustom"><strong>Identificaciï¿½n</strong></div>
         <div class="col-md-3 btn btn-warning"><?=$cliente->identificacion?></div>
     </div>
     <hr/>
     <div id="content_estudios" class="container-fluid " style="clear:both;padding-top:15px;">
             <div style="height: 40px;" class="row-fluid">
                 <div class="agregar_registro text-right">
-                    <a class="btn btn-primary btn-sm" href="javascript:editEstudio(0)"><i class="fa fa-plus-square fa-lg"></i> Agregar</a>
+                    <?
+                    if ($appObj->tienePermisosAccion(array("estudioRiesgo_agregar_terceros")))
+                    {
+                        //Opcion a ejecutar si tiene el permiso
+                        echo "<a class='btn btn-primary btn-sm' href='javascript:editEstudio(0)'><i class='fa fa-plus-square fa-lg'></i> Agregar</a>";
+                    }    
+                    ?>
                     <a class="btn btn-warning btn-sm" href="admindex.php?mod=clientes&action=searchClients"><i class="fa fa-reply fa-lg"></i> Regresar</a>
                 </div>
             </div>
@@ -108,7 +114,7 @@ function cargarEstudios() {
                     <th>Editar</th>
                     <th>Eliminar</th>
                     <th>Fecha</th>
-                    <th>Año</th>
+                    <th>Aï¿½o</th>
                     <th>Modelo</th>
                     <th>Cupo aprobado</th>
                     <th>Opciones</th>
@@ -122,8 +128,20 @@ function cargarEstudios() {
                         $idEstudio = $rsEstudios->fields["id_estudio"];
                 ?>
                         <tr>
-                            <td align="center"><a href="javascript:editEstudio(<?=$idEstudio?>);"><img border="0" alt="Editar estudio" title="Editar estudio" src="./images/editar.png"></a></td>
-                            <td align="center"><a href="javascript:deleteEstudio(<?=$idEstudio?>);"><img border="0" alt="Eliminar estudio" title="Eliminar estudio" src="./images/eliminar.png"></a></td>
+                            <?
+                                if ($appObj->tienePermisosAccion(array("estudioRiesgo_eliminar_terceros")))
+                                {
+                                    //Opcion a ejecutar si tiene el permiso
+                                    echo "<td align='center'><a href='javascript:deleteEstudio(<?=$idEstudio?>);'><img border='0' alt='Eliminar estudio' title='Eliminar estudio' src='./images/eliminar.png'></a></td>";
+                                } 
+                                 
+                                if ($appObj->tienePermisosAccion(array("estudioRiesgo_edita_terceros")))
+                                {
+                                    //Opcion a ejecutar si tiene el permiso
+                                    echo "<td align='center'><a href='javascript:editEstudio(<?=$idEstudio?>);'><img border='0' alt='Editar estudio' title='Editar estudio' src='./images/editar.png'></a></td>";
+                                } 
+                            ?>
+                            
                             <td><?=$rsEstudios->fields["fecha"]?></td>
                             <td><?=$rsEstudios->fields["anio"]?></td>
                             <td><?=$rsEstudios->fields["nombre_modelo"]?></td>

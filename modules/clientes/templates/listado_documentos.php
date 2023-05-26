@@ -63,7 +63,7 @@
 								if ($appObj->tienePermisosAccion(array("documentos_eliminar_terceros")))
 								{
 									//Opcion a ejecutar si tiene el permiso
-									echo "<a href='javascript:deleteDocumento(<?=$idClienteDocumento?>,'clientes','deleteDocumento',<?=$idEstadoDocumento ?)><img border='0' alt='Editar operaci�n' title='Eliminar documento' src='./images/eliminar.png'>Eliminar</a>";
+									echo "<a href='javascript:deleteDocumento(<?=$idClienteDocumento?>,'clientes','deleteDocumento',<?=$idEstadoDocumento ?)><img border='0' alt='Editar operacion' title='Eliminar documento' src='./images/eliminar.png'>Eliminar</a>";
 								}	
 							}
 							?>

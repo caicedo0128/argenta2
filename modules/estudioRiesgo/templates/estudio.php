@@ -10,7 +10,7 @@ function saveEstudio(){
 
     if ($("#datosEstudio").valid()){
 
-        showLoading("Enviando información. Espere por favor...");
+        showLoading("Enviando informaciï¿½n. Espere por favor...");
         var dataForm = "Ajax=true&" + $("#datosEstudio").serialize();
         var strUrl = "admindex.php";
         $.ajax({
@@ -57,7 +57,7 @@ function saveCupo(){
 		if (cupo > 0){
 		
 			bootbox.confirm({
-				title: "Confirmación",
+				title: "Confirmaciï¿½n",
 				message: "Usted va aprobar el cupo para este tercero.<br/><br/>Realmente desea continuar?",
 				closeButton: true,
 				buttons: {
@@ -79,7 +79,7 @@ function saveCupo(){
 					}
 					else if (result){  
 
-						showLoading("Enviando informaciÓn. Espere por favor...");
+						showLoading("Enviando informaciï¿½n. Espere por favor...");
 						var idEstudio = $("#id_estudio").val();
 						var strUrl = "admindex.php";
 						var dataForm = "Ajax=true&mod=estudioRiesgo&action=saveCupo&id_estudio=" + idEstudio
@@ -97,7 +97,7 @@ function saveCupo(){
 								},
 								success: function (response) {
 									closeNotify();
-									showSuccess("Transacción exitosa. Espere por favor...");
+									showSuccess("Transacciï¿½n exitosa. Espere por favor...");
 									cargarEstudios();
 									goObjHtml("content_general", 70,1000);
 								}
@@ -138,7 +138,7 @@ function saveCupo(){
             </div>                
             <div class="row" style="height:10px;">&nbsp;</div>    
             <div class="row">
-                <div class="col-md-2 labelCustom">Año:</div>
+                <div class="col-md-2 labelCustom">Aï¿½o:</div>
                 <div class="col-md-3"> 
                 <?php
                     $selectData = new Select("anio","nombre",$appObj->paramGral["arrAnios"],"",1,"", "form-control", 0, "", "", 0);
@@ -162,7 +162,7 @@ function saveCupo(){
             <div class="row" id="campos_modelo">
 				Seleccione el modelo que va aplicar.
             </div> 
-			<div class="alert alert-success">Condiciones de aprobación.</div> 
+			<div class="alert alert-success">Condiciones de aprobaciï¿½n.</div> 
             <div class="row">
 				<div class="col-md-3 labelCustom">
 					Cupo:
@@ -170,7 +170,7 @@ function saveCupo(){
 					<?php 
 						$c_textbox = new Textbox;
 						echo $c_textbox->Textbox ("cupo", "cupo", 0, "", "form-control number", 50, "11", "", "","","return IsNumber(event);");
-						echo "<small>Último cupo aprobado:<br/>".formato_moneda($estudio->cupo)."</small>";
+						echo "<small>ï¿½ltimo cupo aprobado:<br/>".formato_moneda($estudio->cupo)."</small>";
 					?>           
 					</div>            
 				</div>
@@ -196,7 +196,13 @@ function saveCupo(){
         </form> 
         <center>
             <input type="button" value="Guardar" class="btn btn-primary datos_estudio_btnSave" onclick="saveEstudio();">
-            <input type="button" value="Aprobar cupo" class="btn btn-success datos_estudio_btnSave" onclick="saveCupo();">
+			<?
+				if ($appObj->tienePermisosAccion(array("estudioRiesgo_aprobarCupo_terceros")))
+				{
+					//Opcion a ejecutar si tiene el permiso
+					echo "<input type='button' value='Aprobar cupo' class='btn btn-success datos_estudio_btnSave' onclick='saveCupo();'>";
+				} 
+			?>
         </center> 
     </div>        
 </div>

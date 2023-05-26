@@ -1053,8 +1053,8 @@ function descargarPDF() {
                     <li role="presentation" class="tab_custom active info_anexo"><a href="#info_anexo" onclick="cargarInfoAnexo();" aria-controls="info_anexo" role="tab" data-toggle="tab">Informacion adicional</a></li>
                     <li role="presentation" class="tab_custom documentos_cliente"><a href="#documentos_cliente" onclick="cargarInfoDocumentos();" aria-controls="documentos_cliente" role="tab" data-toggle="tab" >Documentos</a></li>
                     <?php
-                    	if ($this->id_tipo_tercero == 1 || $this->id_tipo_tercero_sec == 1)
-                    	{
+                    	//if ($this->id_tipo_tercero == 1 || $this->id_tipo_tercero_sec == 1)
+                    	//{
                     ?>
 						<li role="presentation" class="tab_custom"><a href="#info_condicion" onclick="cargarInfoAdicional();" aria-controls="info_condicion" role="tab" data-toggle="tab" >Parametros</a></li>
 						<li role="presentation" class="tab_custom"><a href="#ref_pagador" onclick="cargarReferenciaPagador();" aria-controls="ref_pagador" role="tab" data-toggle="tab" >Referencia pagador</a></li>
@@ -1086,12 +1086,12 @@ function descargarPDF() {
  						}
                     ?>
                     <?php
-                    	if ($this->id_tipo_tercero == 6 || $this->id_tipo_tercero_sec == 6)
-                    	{
+                    	//if ($this->id_tipo_tercero == 6 || $this->id_tipo_tercero_sec == 6)
+                    	//{
                     ?>
 						<li role="presentation" class="tab_custom"><a href="#info_aceptacion" onclick="cargarInfoAceptacion();" aria-controls="info_aceptacion" role="tab" data-toggle="tab" >Aceptaciones</a></li>
 					<?php
- 						}
+ 						//}
                     ?>
                     <li role="presentation" class="tab_custom"><a href="#info_seguimiento" onclick="cargarInfoSeguimiento();" aria-controls="info_seguimiento" role="tab" data-toggle="tab" >Seguimiento</a></li>
                     <li role="presentation" class="tab_custom"><a href="#impresa" onclick="cargarVersionImpresa();" aria-controls="impresa" role="tab" data-toggle="tab" >Impresa</a></li>
@@ -1109,7 +1109,7 @@ function descargarPDF() {
                     <div role="tabpanel" class="tab-pane" id="impresa"></div>
                 </div>
             <?php
-                }
+                //}
             ?>
         </div>
     </div>
